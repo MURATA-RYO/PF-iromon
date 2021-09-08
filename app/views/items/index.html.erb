@@ -1,0 +1,13 @@
+<h4>一覧</h4>
+
+<% @items.each do |item| %>
+  <p>タイトル</p>
+ 
+  <span>
+    <%= link_to item.name, item_path(item.id) %>
+  </span> 
+  
+  <P>画像</P>
+  <%= attachment_image_tag item, :image, :fill, 200, 200, format: 'jpeg' %>
+  
+<% end %>  

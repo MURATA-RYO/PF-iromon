@@ -1,0 +1,20 @@
+<h4>新規登録</h4>
+<% if @item.errors.any? %>
+  <%= @item.errors.count %>件のエラーが発生しました
+  <% @item.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>  
+<%= form_with model:@item, url:'/items', local:true do |f| %>
+
+  <h3>タイトル</h3>
+  <%= f.text_field :name %>
+
+  <h3>説明</h3>
+  <%= f.text_field :guide %>
+  
+  <h3>画像</h3>
+  <%= f.attachment_field :image %>
+  <%= f.submit '投稿' %>
+
+<% end %>
