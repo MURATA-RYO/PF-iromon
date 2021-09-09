@@ -1,5 +1,5 @@
 <h4>編集</h4>
-<%= form_with model:@item, url:"/items/#{p@item.id}", local:true do |f| %>
+<%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
   
   <h2>タイトル</h2>
   <%= f.text_field :name %>
