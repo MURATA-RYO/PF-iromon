@@ -1,14 +1,13 @@
-
 <h2>Sign up</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  
+<%= form_with model: @admin, url: admin_registration_path do |f| %>
+  <%= render "admins/shared/error_messages", resource: resource %>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
-  
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -32,4 +31,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "admins/shared/links" %>
