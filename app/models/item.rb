@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :guide, presence: true
 
-  belongs_to :customer
-  has_many :comments, dependent: :destroy
+  # belongs_to :customer
+  # has_many :comments, dependent: :destroy
 
 end

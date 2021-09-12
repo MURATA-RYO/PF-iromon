@@ -1,24 +1,33 @@
-# README
+# 趣味の物を共有閲覧するサイト "いろもん"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+<br>思い出や青春時代を懐かしみ、心癒されましょう。
+<br>誰もがフラリと立ち寄れる共有サイト。
+<br>閲覧は誰でも自由。
+<br>投稿は会員登録必須。
 
-Things you may want to cover:
+## サイトテーマ
+<br>懐かしの時代へタイムスリップ。
 
-* Ruby version
+## テーマを選んだ理由
+<br>時代が変わるにつれ、埋もれていってしまう古き良き物を残してゆく。｢この時代があったから今があるのだぞ｣と思ってほしい。
 
-* System dependencies
+## ターゲットユーザ
+<br>･昭和世代にはノスタルジックに浸っていただきたい。
+<br>･平成、令和世代には教科書的な立ち位置で、掘り下げ興味を持っていただきたい。
 
-* Configuration
+## 主な利用シーン
+<br>これは譲れん、知っていてほしいなど。音楽で言えば誰でも知っている曲ではなく｢知っているからこその曲｣など。
 
-* Database creation
+## 設計書
+<br>
 
-* Database initialization
+## チャレンジ要素一覧
+<br>https://docs.google.com/spreadsheets/d/1VUN0kcIADH0zWRUan2i1E_gKAdfg4X3NjiwdprhcLvw/edit#gid=0
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
