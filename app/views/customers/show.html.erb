@@ -1,20 +1,34 @@
-<div>
-  <h3><%= @customer.name %></h3>
-  <%= image_tag('no_image.jpg') %>
-  <% if @customer.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_customer_path(@customer) %></p>
-  <% end %>
-</div>
-
-<% @items.each do |post_image| %>
-<div>
-  <%= link_to item_path(item.id) do %>
-    <%= attachment_image_tag post_image, :image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag('no_image.jpg') %></p>
-  <p>名：<%= item.name %></p>
-  <p>説明：<%= item.guide %></p>
-  <p>ユーザーネーム：<%= item.customer.name %></p>
-</div>
-<% end %>
-<%#= paginate @items %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "customers/list",item:@item,customer:@customer %>
+　　</div>
+   
+      <div class="col-md-8 offset-md-1">
+        <h2><span class="badge badge-pill badge-dark">思ひでぽろぽろ</span></h2>
+          <% @items.each do |item| %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>推しもん</th>
+                  <th>紹介</th>
+                </tr>
+              </thead>
+        
+              <tbody>
+                <tr>
+                  <td>
+                    <%= link_to customer_path(item.customer) do %>
+                    <%= attachment_image_tag item.customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
+                    <% end %>
+                  <td><%#= attachment_iamge_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>  
+                  <td><%= link_to item.name, item_path(item.id) %></td>
+                  <td><%= item.guide %></td>
+                </tr>
+              </tbody>    
+            </table>
+          <% end %>
+      </div>
+  </div>
+</div>  

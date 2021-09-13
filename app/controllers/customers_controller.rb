@@ -1,22 +1,36 @@
 class CustomersController < ApplicationController
 
+  def index
+    @customers = Customer.all
+    @customer = current_customer
+    @item = Item.new
+  end
+  
   def show
     @customer = Customer.find(params[:id])
-    @items = @Item.page(params[:page]).reverse_order
+    @items = @customer.items
+    @item = Item
   end  
   
   def edit
     @customer = Customer.find(params[:id])
-  end
+    unless @customer.id == current_customer.id
+      redirect_to customer_path(current_customer)
+    end  
+  end  
   
   def update
     @customer = Customer.find(params[:id])
-    @customer.save(customer_params)
-    redirect_to customer_path(@customer.id)
+    if @customer.update(customer_params)
+      flash[:notice] = 'successfully'
+      redirect_to customer_path(@customer)
+    else
+      render :edit
+    end  
   end
   
-  private
-  def customer_parms
-    params.require(:customer).permit(:name, :email, :password)
-  end
+    private
+  def customer_params
+    params.require(:customer).permit(:name, :profile_image, :introduction, :iamge)
+  end  
 end

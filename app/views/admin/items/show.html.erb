@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "items/list",item:@new,customer:@customer %>
+    </div>
+          
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>      
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <%= link_to customer_path(@item.customer) do %>
+                  <%= attachment_image_tag @item.customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+                  <div><%= @item.customer.name %></div>
+                  <% end %>
+                </td>  
+                <td><%= link_to @item.name %></td>
+                <td><%= @item.guide %></td>
+                <td>
+                  <%= render "favorites/favorite-btn", item: @item %>
+                </td>    
+                <td><p>コメント数：<%= @item.comments.count %></p></td>
+                  <% if @item.customer == current_customer %>
+                <td><%= link_to "Edit", edit_item_path(@item.id), class:"btn btn-success btn-sm" %></td>
+                <td><%= link_to "Destroy", item_path(@item.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger btn-sm" %></td>
+                  <% end %>
+              </tr>
+                <td>
+                  <%= render "comments/comment", item: @item %>
+                </td>
+              
+              
+            </tbody>  
+          </table>
+  
+              <div class="new-comment">
+                <%= form_with(model:[@item, @comment], remote: true) do |f| %>
+                <%= f.text_area :comment, size:"90x5",placeholder: "コメントをここに" %>
+                <br><%= f.submit "送信" %>
+                <% end %>
+              </div>
+      </div>
+  </div>  
+</div>

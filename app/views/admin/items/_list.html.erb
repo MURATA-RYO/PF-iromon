@@ -1,0 +1,34 @@
+<h2><span class="badge badge-pill badge-dark">来遊者</span></h2>
+<%= attachment_image_tag customer, :profile_image, :fill, 60, 60, fallback: "jpeg"%>
+  <table class="table">
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= customer.name %></td>
+    </tr>  
+    <tr>
+      <td>一言</td>
+      <td><%= customer.introduction %></td>
+    </tr>
+    <tr>
+      <td>フォロー</td>
+      <td><%= link_to customer.followings.count, customer_followings_path(customer) %></td>
+    </tr>  
+    <tr>
+      <td>フォロワ－</td>
+      <td><%= link_to customer.followers.count, customer_followers_path(customer) %></td>  
+    </tr>
+  </table>
+       
+  <%= link_to "", edit_customer_path(customer),class:"btn btn-secondary btn-block fas fa-user-cog edit_user_id" %>
+        
+<h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
+<%= form_with model:item, url:'/items', local:true do |f| %>
+  
+<h4>推しもん</h4>
+<%= f.text_field :name %>
+
+<h4>紹介</h4>
+<%= f.text_area :guide %>
+
+<br><%= f.submit '新規投稿', class: "btn btn-success btn-sm" %>
+<% end %>
