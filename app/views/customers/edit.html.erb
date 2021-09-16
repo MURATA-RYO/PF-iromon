@@ -8,20 +8,22 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <h1>User info</h1>
+      <h2><span class="badge badge-pill badge-dark">詳細変更</span></h2>
         <%= form_with model:@customer, local:true do |f| %>
-          <label for="inputName">Name</label>
+          
+          <h6>推し画像</h6>
+          <%= f.attachment_field :image %>　
          
-          <h4>Name</h4>
+          <h6>来遊者</h6>
           <%= f.text_field :name %>
     
-          <h4>Image</h4>
+          <h6>画像</h6>
           <%= f.attachment_field :profile_image %>
     
-          <h4>Introduction</h4>
+          <h6>一言</h6>
           <%= f.text_area :introduction %>
     
-          <br><%= f.submit "Update User" %> 
+          <br><%= f.submit "変更" %> 
   
         <% end %>
     </div>

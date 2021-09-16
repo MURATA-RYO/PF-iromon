@@ -6,29 +6,27 @@
    
       <div class="col-md-8 offset-md-1">
         <h2><span class="badge badge-pill badge-dark">思ひでぽろぽろ</span></h2>
-          <% @items.each do |item| %>
+          
             <table class="table">
               <thead>
                 <tr>
-                  <th></th>
-                  <th>推しもん</th>
-                  <th>紹介</th>
+                  <td><strong>推し画像</strong></td>
+                  <td><strong>推しもん</strong></td>
+                  <td><strong>紹介</strong></td>
                 </tr>
               </thead>
         
               <tbody>
+                <% @items.each do |item| %>
                 <tr>
-                  <td>
-                    <%#= link_to customer_path(item.customer) %>
-                    <%#= attachment_image_tag item.customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></td>
-                    <%# end %>
                   <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>  
                   <td><%= link_to item.name, item_path(item.id) %></td>
                   <td><%= item.guide %></td>
                 </tr>
+                <% end %>
               </tbody>    
             </table>
-          <% end %>
+          
       </div>
   </div>
 </div>  

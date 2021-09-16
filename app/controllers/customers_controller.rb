@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @items = @customer.items
-    @item = Item
+    @item = Item.new
   end  
   
   def edit
@@ -31,6 +31,6 @@ class CustomersController < ApplicationController
   
     private
   def customer_params
-    params.require(:customer).permit(:name, :profile_image, :introduction, :iamge)
+    params.require(:customer).permit(:name, :profile_image, :introduction, :image)
   end  
 end

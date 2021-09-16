@@ -1,13 +1,20 @@
-<h4>編集</h4>
-<%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
-  
-  <h6>推し画像</h6>
-  <%= f.attachment_field :image %>
-  
-  <h2>推しもん</h2>
-  <%= f.text_field :name %>
-  
-  <h2>紹介</h2>
-  <%= f.text_field :guide %>
-  <%= f.submit "編集" %>
-<% end %>  
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2><span class="badge badge-pill badge-dark">推し編集</span></h2>
+
+      <%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
+        
+        <h6>推し画像</h6>
+        <%= f.attachment_field :image %>
+        
+        <h6>推しもん</h6>
+        <%= f.text_field :name %>
+        
+        <h6>紹介</h6>
+        <%= f.text_field :guide %>
+        <%= f.submit "編集" %>
+      <% end %>
+    </div>
+  </div>
+</div> 

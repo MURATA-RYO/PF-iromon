@@ -12,8 +12,8 @@
                 <tr>
                   <th>イメージ</th>
                   <th>ニックネーム</th>
-                  <th></th>
-                  <th></th>
+                  <th>フォロー</th>
+                  <th>フォロワー</th>
                   <th></th>
                 </tr>
               </thead>
@@ -23,8 +23,8 @@
                 <tr>
                   <td><%= attachment_image_tag customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
                   <td><span><%= customer.name %></span></td>
-                  <td>フォロー数: <%= customer.followings.count %></td>
-                  <td>フォロワー数: <%= customer.followers.count %></td>
+                  <td><%= customer.followings.count %></td>
+                  <td><%= customer.followers.count %></td>
                   <td>
                     <% if current_customer.following?(customer) %>
                       <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete %>
