@@ -1,10 +1,13 @@
 <h4>編集</h4>
 <%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
   
-  <h2>タイトル</h2>
+  <h6>推し画像</h6>
+  <%= f.attachment_field :image %>
+  
+  <h2>推しもん</h2>
   <%= f.text_field :name %>
   
-  <h2>説明</h2>
+  <h2>紹介</h2>
   <%= f.text_field :guide %>
   <%= f.submit "編集" %>
 <% end %>  

@@ -29,10 +29,10 @@
 <%= f.attachment_field :image %>
 
 <h6>推しもん</h6>
-<%= f.text_field :name %>
+<%= f.text_field :name, size: 30 %>
 
 <h6>紹介</h6>
-<%= f.text_area :guide %>
+<%= f.text_area :guide, size: 30 %>
 
 <br><%= f.submit '新規投稿', class: "btn btn-success btn-block btn-sm" %>
 <% end %>
