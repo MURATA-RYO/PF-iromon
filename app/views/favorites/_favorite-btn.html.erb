@@ -1,9 +1,9 @@
 <% if item.favorited_by?(current_customer) %>
   <%= link_to item_favorites_path(item), method: :DELETE, remote: true do %>
-    <span class="btn btn-danger">♡<%= item.favorites.count %></span>
+    <span class="fas fa-heart size"> <%= item.favorites.count %></span>
   <% end %>
 <% else %>
   <%= link_to item_favorites_path(item), method: :POST, remote: true do %>
-    <sapn class="btn btn-primary">♥<%= item.favorites.count %></sapn>
+    <sapn class="far fa-heart"> <%= item.favorites.count %></sapn>
   <% end %>
 <% end %>  

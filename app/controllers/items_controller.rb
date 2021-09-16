@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @customer = @item.customer
     @new = Item.new
-    @item_comment = Comment.new
+    @comment = Comment.new
   end
   
   def edit

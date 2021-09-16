@@ -19,7 +19,7 @@
     </tr>
   </table>
 
-  <%= link_to "", edit_customer_path(customer),class:"btn btn-secondary btn-block btn-sm fas fa-user-cog edit_user_id" %>
+  <%= link_to "編集", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm fas fa-bacterium" %>
 
 <br>
 <h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
@@ -34,5 +34,5 @@
 <h6>紹介</h6>
 <%= f.text_area :guide, size: 30 %>
 
-<br><%= f.submit '新規投稿', class: "btn btn-success btn-block btn-sm" %>
+<br><%= f.submit '投稿', class: "btn btn-success btn-block btn-sm" %>
 <% end %>
