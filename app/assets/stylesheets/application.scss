@@ -14,3 +14,22 @@
  *= require_self
  */
  @import "bootstrap";
+ 
+ main {
+ padding-top: 20px;
+ padding-bottom: 150px;
+}
+
+ footer {
+ position: absolute;
+ bottom: 0;
+ background-color: #343a40;
+ width: 100%;
+ height: 50px;
+}
+
+textarea {
+  resize: none;
+  width:252px;
+  height:30px;
+}

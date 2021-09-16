@@ -24,7 +24,7 @@ class Customer < ApplicationRecord
     followings.include?(customer)
   end
   
-  attachment :image
+  # attachment :image
   attachment :profile_image
   validates :name, presence: true
   validates :introduction, length: { maximum: 50 }
