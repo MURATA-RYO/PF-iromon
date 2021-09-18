@@ -4,6 +4,18 @@
       <h2><span class="badge badge-pill badge-dark">推しもん詳細</span></h2>
     </div>
     
+    投稿詳細
+　
+  <%= @item.name %>
+  
+  <% @post_tags.each do |tag| %>
+  <span>
+    <%= link_to tag.tag_name, tag_items_path(tag_id: tag.id) %>
+    <%= "(#{tag.items.count})" %>
+    </span>
+    
+    
+    
         <div class="col-lg-6">
           <h5><strong>推し画像</strong></h5>
           <%= attachment_image_tag @item, :image, :fill, 350, 350, format: 'no_image.jpg' %>
