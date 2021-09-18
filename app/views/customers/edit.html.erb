@@ -8,17 +8,14 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <h2><span class="badge badge-pill badge-dark">詳細変更</span></h2>
+      <h2><span class="badge badge-pill badge-dark">プロフィール変更</span></h2>
         <%= form_with model:@customer, local:true do |f| %>
           
-          <h6>推し画像</h6>
-          <%= f.attachment_field :image %>　
-         
-          <h6>来遊者</h6>
-          <%= f.text_field :name %>
-    
-          <h6>画像</h6>
+          <h6>プロフィール画像</h6>
           <%= f.attachment_field :profile_image %>
+          
+          <h6>ニックネーム</h6>
+          <%= f.text_field :name, size: 30 %>
     
           <h6>一言</h6>
           <%= f.text_area :introduction %>

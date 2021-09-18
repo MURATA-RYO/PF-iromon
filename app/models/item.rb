@@ -14,13 +14,13 @@ class Item < ApplicationRecord
 
   def self.search(search, word)
     if search == "forward_match"
-      @item = Item.where("title LIKE?","#{word}%")
+      @item = Item.where("name LIKE?","#{word}%")
     elsif search == "backward_match"
-      @item = Item.where("title LIKE?","%#{word}")
+      @item = Item.where("name LIKE?","%#{word}")
     elsif search == "perfect_match"
-      @item = Item.where(book: word)
+      @item = Item.where(name: word)
     elsif search == "partail_match"
-      @item = Item.where("title LIKE?","%#{word}%")
+      @item = Item.where("name LIKE?","%#{word}%")
     else
       @item = Item.all
     end  

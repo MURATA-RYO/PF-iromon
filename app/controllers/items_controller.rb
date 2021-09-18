@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
     @item = Item.new
     @customer = current_customer
   end 
