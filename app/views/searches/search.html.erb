@@ -1,16 +1,16 @@
 <% if @range == '2' %>
-<h1>Items search for "<%= params[:word] %>"</h1>
+<h2>思ひで 検索 "<%= params[:word] %>"</h2>
 <% else %>
-<h1>Customers search for "<%= params[:word] %>"</h1>
+<h2>来週者 検索 "<%= params[:word] %>"</h2>
 <% end %>
 
 <table class="table tabel-hover tabel-inverse">
   <% if @range == '2' %>
   <thead>
     <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Body</th>
+      <th>来遊者</th>
+      <th>推しもん</th>
+      <th>紹介</th>
       <th></th>
       <th></th>
       <th colspan='3'></th>
@@ -18,11 +18,11 @@
   </thead>
   
   <tbody>
-    <% @item.each do |book| %>
+    <% @item.each do |item| %>
     <tr>
       <td>
         <%= link_to(item.customer) do %>
-        <%= attachment_image_tag(item.customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg") %>
+        <%= attachment_image_tag(item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg") %>
         <% end %>
       </td>
       <td>
@@ -36,8 +36,8 @@
   
   <thead>
     <tr>
-      <th>image</th>
-      <th>name</th>
+      <th>来遊者</th>
+      <th>ニックネーム</th>
       <th></th>
       <th></th>
       <th colspan='3'></th>
@@ -47,9 +47,9 @@
   <tbody>
     <% @customer.each do |customer| %>  
       <tr>
-        <td><%= attachment_image_tag(customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg") %></td>
+        <td><%= attachment_image_tag(customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg") %></td>
         <td><%= customer.name%></td>
-        <td><%= link_to "show", customer, class: "customer_#{customer.id}" %></td>
+        <td><%= link_to "来遊者詳細", customer, class: "customer_#{customer.id}" %></td>
       </tr>
     <% end %>  
   </tbody>

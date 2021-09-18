@@ -1,20 +1,31 @@
-<h4>新規登録</h4>
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>件のエラーが発生しました
-  <% @item.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>  
-<%= form_with model:@item, url:'/items', local:true do |f| %>
+<div class ="container">
+  <div class="form-horizontal">
 
-  <h3>タイトル</h3>
-  <%= f.text_field :name %>
-
-  <h3>説明</h3>
-  <%= f.text_field :guide %>
-  
-  <h3>画像</h3>
-  <%= f.attachment_field :image %>
-  <%= f.submit '投稿' %>
-
-<% end %>
+    <h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
+    <%= form_with model:@item, url:'/items', local: true do |f| %>
+    
+    <div class="form-group row">
+      <%= f.label :推し画像, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+      <%= f.attachment_field :image %>
+      </div>
+    </div>
+     
+    <div class="form-group row">
+      <%= f.label :推しもん, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+      <%= f.text_field :name, size: 30 %>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <%= f.label :紹介, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+      <%= f.text_area :guide %>
+      </div>
+    </div>
+    
+    <br><%= f.submit '寄稿', class: "btn btn-success w-50 btn-sm" %>
+    <% end %>
+  </div>
+</div>  

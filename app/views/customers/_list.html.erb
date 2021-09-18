@@ -1,10 +1,12 @@
 <h2><span class="badge badge-pill badge-dark">来遊者</span></h2>
-<%= attachment_image_tag customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-  <table class="table"> 
+<div class="text-center"><%= attachment_image_tag customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%></div>
+
+  <br>
+  <table class="table">
     <tr>
       <td>ニックネーム</td>
       <td><%= customer.name %></td>
-    </tr>  
+    </tr>
     <tr>
       <td>一言</td>
       <td><%= customer.introduction %></td>
@@ -12,13 +14,13 @@
     <tr>
       <td>フォロー</td>
       <td><%= link_to customer.followings.count, customer_followings_path(customer) %></td>
-    </tr>  
+    </tr>
     <tr>
       <td>フォロワー</td>
-      <td><%= link_to customer.followers.count, customer_followers_path(customer) %></td>  
+      <td><%= link_to customer.followers.count, customer_followers_path(customer) %></td>
     </tr>
-  </table>    
-      
+  </table>
+
         <% if customer_signed_in? && current_customer != @customer %>
         <% if current_customer.following?(customer) %>
           <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info btn-block btn-sm" %>
@@ -26,8 +28,8 @@
           <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: "btn btn-success btn-block btn-sm" %>
         <% end %>
         <% end %>
-  
-  <%= link_to "編集", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm fas fa-bacterium" %>
+
+  <%= link_to "変更", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm" %>
 
 <br>
 <h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
@@ -42,5 +44,7 @@
 <h6>紹介</h6>
 <%= f.text_area :guide %>
 
-<br><%= f.submit '投稿', class: "btn btn-success btn-block btn-sm" %>
+<br><%= f.submit '寄稿', class: "btn btn-success btn-block btn-sm" %>
 <% end %>
+
+<%= link_to "新規投稿", '/items/new' %>

@@ -1,4 +1,4 @@
-class SearchsController < ApplicationController
+class SearchesController < ApplicationController
 
   def search
     @range = params[:range]
@@ -9,6 +9,6 @@ class SearchsController < ApplicationController
       @customer = Customer.search(search,word)
     else
       @item = Item.search(search,word)
-    end  
+    end
   end
 end
