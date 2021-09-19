@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1 text-center">
+
+      <h2><span class="badge badge-pill badge-dark">タグ検索結果</span></h2>
+
+        <br>
+        <% @tag_list.each do |list| %>
+          <span>
+            <%= link_to list.tag_name, tag_items_path(tag_id: list.id) %>
+            <%= "(#{list.items.count})" %>
+            <% end %>
+          </span>
+
+        <br></br>
+        <%= " ─ " %>
+        <strong><%= "#{@tag.tag_name}" %></strong>
+        <%= " ─ 投稿一覧" %>
+        <br></br>
+        <% @items.each do |item| %>
+          <strong><%= link_to item.name, item_path(item) %></strong>
+          <% end %>
+        <br></br>
+        <%= link_to '思ひで一覧', items_path, class: "btn btn-sm w-25 btn-primary" %>
+
+</div>
+</div>
+</div>

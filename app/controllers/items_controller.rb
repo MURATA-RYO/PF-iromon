@@ -10,15 +10,15 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.customer_id = current_customer.id 
     
-    @item = current_customer.items.new(item_params)          
+    # @item = current_customer.items.new(item_params)          
     tag_list = params[:item][:tag_name].split(nil)
     
     if @item.save
       flash[:notice] = 'successfully'
-      redirect_to item_path(@item.id)
+      # redirect_to item_path(@item.id)
       
-      @item.save_tag!(tag_list)               
-      redirect_back(fallback_location: root_path)  
+      @item.save_tag(tag_list)          
+      redirect_to items_path
       
     else
       @customer = current_customer
@@ -31,7 +31,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-    # @tag_list = Tag.all
+    # @tag = Tag.new
+    # @tag = Tag.all
     @items = Item.all
     # @item = current_customer.items.new
     

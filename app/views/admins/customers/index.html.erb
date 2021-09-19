@@ -1,0 +1,30 @@
+<h2><span class="badge badge-pill badge-dark">管理者側来遊者一覧</span></h2>
+
+    <div class="p-3 mb-2 bg-white text-dark">
+      <div class="col-12">
+       <table class="table table table-striped">
+        <thead>
+          <tr>
+            <th>来遊者</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= link_to customer.name %></td>
+              <td><%= link_to '抹消', admins_customer_path(@customers), method: :delete, class: 'btn btn-sm btn-danger' %></td>
+              <!--idを入れる-->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!--%= paginate @users %>-->
+    </div>
+   </div>
+  </div>
+ </div>
