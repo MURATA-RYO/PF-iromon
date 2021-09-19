@@ -29,22 +29,29 @@
         <% end %>
         <% end %>
 
-  <%= link_to "変更", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm" %>
+  <%= link_to "プロフィール変更", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm" %>
 
+<!--<h2><span class="badge badge-pill badge-dark">思ひで</span></h2>-->
+<%#= form_with model:item, url:'/items', local: true do |f| %>
+
+<!--<h6>推し画像</h6>-->
+<!--<%#= f.attachment_field :image %>-->
+
+<!--<h6>推しもん</h6>-->
+<!--<%#= f.text_field :name, size: 30 %>-->
+
+<!--<h6>紹介</h6>-->
+<!--<%#= f.text_area :guide %>-->
+
+<!--<br><%#= f.submit '寄稿', class: "btn btn-success btn-block btn-sm" %>-->
+<!--<%# end %>-->
 <br>
-<h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
-<%= form_with model:item, url:'/items', local: true do |f| %>
+<%= link_to "思ひで投稿", '/items/new', class: "btn btn-sm btn-block btn-primary" %>
 
-<h6>推し画像</h6>
-<%= f.attachment_field :image %>
+<%= form_with(model: @tag, url: tags_path, method: :get, local: true) do |f| %>
+  <% f.label :tag_id %>
+  <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :include_blank => true %>
+  <%= f.submit '検索' %>
 
-<h6>推しもん</h6>
-<%= f.text_field :name, size: 30 %>
-
-<h6>紹介</h6>
-<%= f.text_area :guide %>
-
-<br><%= f.submit '寄稿', class: "btn btn-success btn-block btn-sm" %>
 <% end %>
 
-<%= link_to "新規投稿", '/items/new' %>
