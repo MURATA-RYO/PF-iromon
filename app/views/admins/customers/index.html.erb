@@ -2,23 +2,19 @@
 
     <div class="p-3 mb-2 bg-white text-dark">
       <div class="col-12">
-       <table class="table table table-striped">
+       <table class="table table-striped">
         <thead>
           <tr>
             <th>来遊者</th>
             <th></th>
-            <th></th>
-            <th></th>
-          
           </tr>
         </thead>
 
         <tbody>
           <% @customers.each do |customer| %>
             <tr>
-              <td><%= link_to customer.name %></td>
-              <td><%= link_to '抹消', admins_customer_path(@customers), method: :delete, class: 'btn btn-sm btn-danger' %></td>
-              <!--idを入れる-->
+              <td><%= link_to customer.name, customer_path(customer.id) %></td>
+              <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-25 btn-danger fas fa-skull" %></td>
             </tr>
           <% end %>
         </tbody>

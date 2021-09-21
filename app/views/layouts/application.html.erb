@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://kit.fontawesome.com/fb53ccb37d.js" crossorigin="anonymous"></script>
     <title>いろもん</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/fb53ccb37d.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -43,6 +43,29 @@
                 Logout
               </a>
             </li>
+            
+            <% elsif admin_signed_in? %>
+            
+            
+            <span class="text-light"><strong>今、管理者です</strong></span>
+            
+            
+            <li>
+              <a class="fas fa-ghost nav-link text-light" href="/admins/customers">
+                Customers
+              </a>
+            </li>
+            <!--<li>-->
+            <!--  <a class="fas fa-robot nav-link text-light" href="/admins/items">-->
+            <!--    Items-->
+            <!--  </a>-->
+            <!--</li>-->
+            <li>
+              <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">
+                Logout
+              </a>
+            </li>
+        
             <% else %>
             <li>
               <a class="fas fa-kiwi-bird nav-link text-light" href="/">
