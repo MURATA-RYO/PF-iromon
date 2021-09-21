@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admins::RegistrationsController < Devise::RegistrationsController
+class Customers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -61,9 +61,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_up_path_for(resource)
-    admins_customers_path
+    customer_path(current_customer.id)
   end 
 
 end
-
-

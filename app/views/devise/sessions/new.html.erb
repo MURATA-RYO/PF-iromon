@@ -1,6 +1,6 @@
 <%= flash[:alert] %>
 
-<h4 class ="text-center m-5 border-bottom p-1">Log in</h4>
+<h4 class ="text-center m-5 border-bottom p-1">来遊者ログイン</h4>
 
 <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
   
@@ -30,7 +30,7 @@
       <% end %>
 
       <div class="text-center">
-        <%= f.submit "Log in", class: "btn btn-sm btn-success" %>
+        <%= f.submit "ログイン", class: "btn btn-sm w-50 btn-success" %>
       </div>
       </div>
     </div>

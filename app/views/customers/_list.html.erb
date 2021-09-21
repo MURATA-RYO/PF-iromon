@@ -23,13 +23,14 @@
 
         <% if customer_signed_in? && current_customer != @customer %>
         <% if current_customer.following?(customer) %>
-          <%= link_to "フォロー外す", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info btn-block btn-sm" %>
+          <%= link_to "", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info btn-block fas fa-praying-hands" %>
         <% else %>
-          <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, class: "btn btn-success btn-block btn-sm" %>
+          <%= link_to "", customer_relationships_path(customer.id), method: :post, class: "btn btn-success btn-block fas fa-thumbs-up" %>
         <% end %>
         <% end %>
-
-  <%= link_to "プロフィール変更", edit_customer_path(customer), class: "btn btn-secondary btn-block btn-sm" %>
+  <br>
+  <br>
+  <%= link_to "", edit_customer_path(customer), class: "btn btn-warning btn-block fas fa-theater-masks" %>
 
 <!--<h2><span class="badge badge-pill badge-dark">思ひで</span></h2>-->
 <%#= form_with model:item, url:'/items', local: true do |f| %>
@@ -45,13 +46,13 @@
 
 <!--<br><%#= f.submit '寄稿', class: "btn btn-success btn-block btn-sm" %>-->
 <!--<%# end %>-->
+<br></br>
+<%= link_to "思ひで投稿", '/items/new', class: "btn btn-sm btn-block btn-info" %>
 <br>
-<%= link_to "思ひで投稿", '/items/new', class: "btn btn-sm btn-block btn-primary" %>
-
 <%= form_with(model: @tag, url: tags_path, method: :get, local: true) do |f| %>
   <% f.label :tag_id %>
-  <%= f.collection_select :tag_id, Tag.all, :id, :tag_name, :include_blank => true %>
-  <%= f.submit '検索' %>
+  <%= f.collection_select :tag_id, Tag.all, :id, :tag_name %>
+  <%= f.submit 'タグ検索' %>
 
 <% end %>
 

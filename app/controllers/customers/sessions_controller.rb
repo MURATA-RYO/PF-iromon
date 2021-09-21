@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admins::SessionsController < Devise::SessionsController
+class Customers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -24,9 +24,9 @@ class Admins::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
+
   def after_sign_in_path_for(resource)
-    admins_customers_path
+    customer_path(current_customer.id)
   end 
 
 end
