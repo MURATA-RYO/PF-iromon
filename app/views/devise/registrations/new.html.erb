@@ -2,19 +2,19 @@
 
 <h4 class ="text-center m-5 border-bottom p-1">新規来遊者登録</h4>
 
-<%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+<%= form_with model:@customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   
   <div class ="pl-xl-5">
     <div class ="container">
       <div class="form-horizontal">
   
-      <div class="form-group row">
-        <%= f.label :プロフィール画像, class: "col-sm-3 col-form-label" %>
-        <div class="col-sm-9">
-        <%= f.attachment_field :profile_image %>
-        </div>
-      </div>
+      <!--<div class="form-group row">-->
+      <!--  <%#= f.label :プロフィール画像, class: "col-sm-3 col-form-label" %>-->
+      <!--  <div class="col-sm-9">-->
+      <!--  <%#= f.attachment_field :profile_image %>-->
+      <!--  </div>-->
+      <!--</div>-->
   
       <div class="form-group row">
         <%= f.label :ニックネーム, class: "col-sm-3 col-form-label" %>

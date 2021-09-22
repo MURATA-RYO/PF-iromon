@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     # @item = current_customer.items.new(item_params)          
     tag_list = params[:item][:tag_name].split(nil)
     
-    if @item.save
+    if @item.save!
       flash[:notice] = 'successfully'
       # redirect_to item_path(@item.id)
       
