@@ -40,7 +40,7 @@
               
             <tr>
               <h5><strong>コメント数</strong></h5>
-              <p><%= @item.comments.count %></p>
+              <p><span class="far fa-comment"> <%= @item.comments.count %></span></p>
             </tr>
 
             <%= render "comments/comment", item: @item %>
@@ -62,7 +62,7 @@
               <%= link_to "", item_path(@item.id), method: :delete, "deta-confirm" => "削除しますか？", class: "btn btn-danger w-25 btn-sm fas fa-trash-alt" %>
               <% end %>
               <% end %>
-            </div>
+              </div>
        </div>
   </div>
 </div>    

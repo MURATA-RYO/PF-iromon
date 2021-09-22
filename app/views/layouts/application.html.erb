@@ -26,7 +26,10 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li>
-              <%= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird nav-link text-light" %>
+              <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird nav-link text-light" %>
+              <a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%= current_customer.id %>/">
+                Home
+              </a>
             </li>
             <li>
               <a class="fas fa-ghost nav-link text-light" href="/customers">

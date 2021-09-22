@@ -1,20 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="mx-auto">
-      <h2><span class="badge badge-pill badge-dark">推し編集</span></h2>
-
-      <%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
+  <div class ="pl-xl-5">
+    <div class ="container">
+      <div class="form-horizontal">
+        <h2><span class="badge badge-pill badge-dark">推し編集</span></h2>
+        <%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
         
-        <h6>推し画像</h6>
-        <%= f.attachment_field :image %>
+        <div class="form-group row">
+          <%= f.label :推し画像, class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-9">
+          <%= f.attachment_field :image %>
+          </div>
+        </div>  
         
-        <h6>推しもん</h6>
-        <%= f.text_field :name %>
+        <div class="form-group row">
+          <%= f.label :推しもん, class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-9">
+          <%= f.text_field :name, size: 15 %>
+          </div>
+        </div>  
         
-        <h6>紹介</h6>
-        <%= f.text_field :guide %>
-        <%= f.submit "編集" %>
-      <% end %>
+        <div class="form-group row">
+          <%= f.label :紹介, class: "col-sm-3 col-form-label" %>
+          <div class="col-sm-9">
+          <%= f.text_field :guide %>
+          </div>
+        </div>
+        
+        <div class="col-md-8 text-center">
+        <%= f.submit "編集", class: "btn btn-sm w-50 btn-success" %>
+        </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div> 
+  </div> 

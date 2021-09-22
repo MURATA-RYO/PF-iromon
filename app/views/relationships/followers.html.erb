@@ -1,27 +1,35 @@
-<h1>Followers Customers</h1>
-<% if @customers.exists? %>
-  <table table="class" width="100%">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= attachment_image_tag customer, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></td>
-        <td><%= customer.name %></td>
-        <td>フォロー数: <%= customer.followings.count %></td>
-        <td>フォロワー数: <%= customer.followers.count %></td>
-        <td><%= link_to "Show", current_customer %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% else %>
-  <p>ユーザーはいません</p>
-<% end %>
+<div class="container">
+<h2><span class="badge badge-pill badge-dark">フォロワー</span></h2>
+  <% if @customers.exists? %>
+  
+    <div class="bg-white text-dark">
+      <div class="col-8">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td><strong>プロフィール画像</strong></td>
+              <td><strong>ニックネーム</strong></td>
+              <td><strong>詳細</strong></td>
+            </tr>
+          </thead>
+    
+          <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= attachment_image_tag customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg"%></td>
+              <td><%= customer.name %></td>
+              <!--<td>フォロー数: <%#= customer.followings.count %></td>-->
+              <!--<td>フォロワー数: <%#= customer.followers.count %></td>-->
+              <td><%= link_to "", customer_path(customer.id), class: "btn btn-info w-50 fas fa-hat-wizard" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="text-center">
+        <h2><span class="badge badge-pill badge-dark">No Followers...</span></h2>
+        </div>
+      <% end %>
+      </div>
+    </div>
+</div>
