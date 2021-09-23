@@ -1,54 +1,51 @@
 <div class="container">
   <div class="form-horizontal">
-    
+
     <h2><span class="badge badge-pill badge-dark">思ひで</span></h2>
     <%= form_with(model: @item, url: items_path, local: true) do |f| %>
-    
-    <div class="form-group row">
-      <%= f.label :推し画像, class: "col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-      <%= f.attachment_field :image %>
-      </div>
-    </div>
-     
-    <div class="form-group row">
-      <%= f.label :推しもん, class: "col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-      <%= f.text_field :name, size: 30 %>
-      </div>
-    </div>
-    
-    <div class="form-group row">
-      <%= f.label :紹介, class: "col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-      <%= f.text_area :guide %>
-      </div>
-    </div>
-    
-    <div class="form-group row">
-      <%= f.label :タグ, class: "col-sm-3 col-form-label" %>
-      <div class="col-sm-9">
-      <%= f.text_field :tag_name, size: 30 %>
-      </div>
-      　"スペースを入力することで複数のタグを付けることができます。"
-      <br>      
-      　"例：あんぱん クリームぱん うぐいすパン"
-      </div>
-    </div>
-    
-    <div class="form-group row">
-      <%= f.label :タグリスト, class: "col-sm-3 col-form-label" %>
-      <% @tag_list.each do |list| %>
       
-        <%= link_to list.tag_name, tag_items_path(tag_id: list.id) %>
-        <%= "(#{list.items.count})" %>
-        <% end %>  
-      
-      <div class="col-sm-9">
+      <div class="form-group row">
+        <%= f.label :推し画像, class: "col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+        <%= f.attachment_field :image %>
+        </div>
       </div>
       
-      <br></br>
-      <%= f.submit '寄稿', class: "btn btn-success w-50 btn-sm" %>
+      <div class="form-group row">
+        <%= f.label :推しもん, class: "col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+        <%= f.text_field :name, size: 30 %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :紹介, class: "col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+        <%= f.text_area :guide, size: 30 %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :タグ, class: "col-sm-3 col-form-label" %>
+        <div class="col-sm-9">
+          <%= f.text_field :tag_name, size: 30 %>
+        </div>
+        　"スペースを入力することで複数のタグを付けることができます。"
+        <br>
+        　"例：あんぱん クリームぱん うぐいすパン"
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :タグリスト, class: "col-sm-3 col-form-label" %>
+        <% @tag_list.each do |list| %>
+          <%= link_to list.tag_name, tag_items_path(tag_id: list.id) %>
+          <%= "(#{list.items.count})" %>
+        <% end %>
+        <div class="col-sm-9">
+        </div>
+        <br></br>
+        <%= f.submit '寄稿', class: "btn btn-success w-50 btn-sm" %>
       <% end %>
+      </div>
   </div>
-</div>  
+</div>
