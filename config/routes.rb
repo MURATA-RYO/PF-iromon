@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
- root to: "homes#top"
+  
+ 
+  
+  root to: "homes#top"
  
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
@@ -44,4 +47,12 @@ end
     resources :items, only: [:index, :show, :edit, :destroy]
   
   end
+  
+    scope module: :customers do
+    
+    get   'inquiries'         => 'inquiries#index'     # 入力画面
+    post  'inquiries/confirm' => 'inquiries#confirm'   # 確認画面
+    post  'inquiries/thanks'  => 'inquiries#thanks'    # 送信完了画面
+  
+end
 end
