@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h2><span class="badge badge-pill badge-dark">管理者側来遊者投稿一覧</span></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <td><strong>投稿者</strong></td>
+              <td><strong>投稿画像</strong></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </thead>  
+ 
+          <tbody>
+            <tr>
+              <% @items.each do |item| %>
+            　<td><%= attachment_image_tag item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %></td>
+          　   <td>
+                <%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              </td> 
+             <td><%= link_to '', admins_item_path(item.id), method: :delete, class: "btn btn-sm btn-block btn-danger fas fa-skull" %></td>
+            </tr>
+            <% end %>
+            <%= paginate @items %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>  

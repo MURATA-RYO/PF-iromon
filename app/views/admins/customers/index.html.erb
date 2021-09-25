@@ -1,7 +1,8 @@
+<div class="container justify-content-center">
 <h2><span class="badge badge-pill badge-dark">管理者側来遊者一覧</span></h2>
 
     <div class="p-3 mb-2 bg-white text-dark">
-      <div class="col-12">
+      <div class="col-9">
        <table class="table table-striped">
         <thead>
           <tr>
@@ -13,7 +14,7 @@
         <tbody>
           <% @customers.each do |customer| %>
             <tr>
-              <td><%= link_to customer.name, customer_path(customer.id) %></td>
+              <td><%= customer.name %></td>
               <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-25 btn-danger fas fa-skull" %></td>
             </tr>
           <% end %>
@@ -22,3 +23,4 @@
       <%= paginate @customers %>
       </div>
     </div>
+</div>

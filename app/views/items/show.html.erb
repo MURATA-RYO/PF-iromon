@@ -35,12 +35,16 @@
           
             <tr>
               <h5><strong>懐かしいいね</strong></h5>
+              <% if @item.customer.id != current_customer.id %>
               <p><%= render "favorites/favorite-btn", item: @item %></p>
+              <% else %>
+              <sapn class="far fa-heart" style="color:#00A0E9"> <%= @item.favorites.count %></sapn>
+              <% end %>
             </tr>
               
             <tr>
               <h5><strong>コメント数</strong></h5>
-              <p><span class="far fa-comment"> <%= @item.comments.count %></span></p>
+              <p><span class="far fa-comment" style="color:#00A0E9"> <%= @item.comments.count %></span></p>
             </tr>
 
             <%= render "comments/comment", item: @item %>

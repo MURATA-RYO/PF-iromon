@@ -26,7 +26,7 @@
             <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
             <li>
-              <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird nav-link text-light" %>
+              <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird text-light" %>
               <a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%= current_customer.id %>/">
                 Home
               </a>
@@ -61,11 +61,11 @@
                 Customers
               </a>
             </li>
-            <!--<li>-->
-            <!--  <a class="fas fa-robot nav-link text-light" href="/admins/items">-->
-            <!--    Items-->
-            <!--  </a>-->
-            <!--</li>-->
+            <li>
+              <a class="fas fa-robot nav-link text-light" href="/admins/items">
+                Items
+              </a>
+            </li>
             <li>
               <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">
                 Logout
@@ -126,7 +126,7 @@
 
     
     <footer>
-      <strong>iromon</strong>
+      <strong>2021 iromon</strong>
     </footer>
   </div>
   </body>
