@@ -48,7 +48,7 @@ end
   
   end
   
-    scope module: :customers do
+  scope module: :customers do
     
     get   'inquiries'         => 'inquiries#index'     # 入力画面
     post  'inquiries/confirm' => 'inquiries#confirm'   # 確認画面

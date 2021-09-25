@@ -38,9 +38,11 @@
                   <td><%= link_to item.name, item_path(item.id) %></td>
                   <td><%= item.guide %></td>
                   <td>
-                    <%# if customer_signed_in? && current_customer != item.customer %>
+                    <% if item.customer.id != current_customer.id %>
                     <%= render "favorites/favorite-btn", item: item %>
-                    <%# end %>
+                    <% else %>
+                    <sapn class="far fa-heart" style="color:#00A0E9"> <%= item.favorites.count %></sapn>
+                    <% end %>
                   </td>
                   <td>
                     <%= link_to item_path(item.id) do %>

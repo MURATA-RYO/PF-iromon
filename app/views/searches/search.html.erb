@@ -1,7 +1,9 @@
 <% if @range == '2' %>
-<h2>思ひで 検索 "<%= params[:word] %>"</h2>
+<h2><span class="badge badge-pill badge-dark">思ひで 検索 "<%= params[:word] %>"</span></h2>
+<!--<h2>思ひで 検索 "<%#= params[:word] %>"</h2>-->
 <% else %>
-<h2>来週者 検索 "<%= params[:word] %>"</h2>
+<h2><span class="badge badge-pill badge-dark">来遊者 検索 "<%= params[:word] %>"</span></h2>
+<!--<h2>来週者 検索 "<%#= params[:word] %>"</h2>-->
 <% end %>
 
 <table class="table tabel-hover tabel-inverse">
