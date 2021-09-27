@@ -21,7 +21,7 @@
               <tbody>
                 <% @customers.each do |customer| %>
                 <tr>
-                  <td><%= attachment_image_tag customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg"%></td>
+                  <td><%= attachment_image_tag customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %></td>
                   <td><span><%= customer.name %></span></td>
                   <!--<td><%#= customer.followings.count %></td>-->
                   <!--<td><%#= customer.followers.count %></td>-->
