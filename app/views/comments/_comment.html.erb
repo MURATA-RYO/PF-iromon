@@ -1,32 +1,25 @@
-<table class="table">
+<table class="table table-hover table-striped">
   <thead>
-    <tr>
-      <% item.comments.each do |comment| %>
-      <td><strong>来遊者</strong></td>
-      <td><strong>ニックネーム</strong></td>
-      <td><strong>コメント</strong></td>
-    </tr>
-  </thead>
- 
-  <tbody>
+    <% item.comments.each do |comment| %>
     <tr>
       <td>
-        
         <%= link_to customer_path(comment.customer) do %>
-        <%= attachment_image_tag comment.customer, :profile_image, :fill, 50, 50, fallback: "no_image.jpg"%>
+        <%= attachment_image_tag comment.customer, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class:"rounded-circle"%>
         <% end %>
-      </td> 
-        
+      </td>
+
       <td><%= comment.customer.name %></td>
-      
+
       <td><%= comment.comment %></td>
-          
+
+      <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+
       <td>
         <% if comment.customer == current_customer %>
         <%= link_to "", item_comment_path(comment.item, comment), method: :delete, remote: true, class:"btn btn-danger btn-sm btn-block fas fa-trash-alt" %>
         <% end %>
       </td>
-    </tr> 
+    </tr>
         <% end %>
-  </tbody>
+  </thead>
 </table>
