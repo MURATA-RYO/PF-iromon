@@ -101,7 +101,13 @@
           </div>
         </nav>
       </header>
-      <br>
+   
+      <% if flash[:notice] %>
+        <div class="alert alert-primary text-center" role="alert"><strong><%= notice %></strong></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger text-center" role="alert"><strong><%= alert %></strong></div>
+      <% end %>
     
       <main>
         <div class="text-center">
@@ -120,7 +126,6 @@
           <% end %>
           <% end %>
         </div>
-        <br>  
         <%= flash[:notice] %>
         <%= yield %>
       </main>
