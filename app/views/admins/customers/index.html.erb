@@ -1,13 +1,14 @@
 <div class="container justify-content-center">
-<h2><span class="badge badge-pill badge-dark">管理者側来遊者一覧</span></h2>
+  <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">管理者側来遊者一覧</font></span></h2>
 
-    <div class="p-3 mb-2 bg-white text-dark">
-      <div class="col-9">
+    <br>
+    <div class="bg-white">
+      <div class="col-11">
        <table class="table table-striped">
         <thead>
           <tr>
             <th>来遊者</th>
-            <th></th>
+            <th>抹消</th>
           </tr>
         </thead>
 
@@ -15,12 +16,12 @@
           <% @customers.each do |customer| %>
             <tr>
               <td><%= customer.name %></td>
-              <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-25 btn-danger fas fa-skull" %></td>
+              <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-25 btn-outline-danger fas fa-skull" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <%= paginate @customers %>
+        <%= paginate @customers %>
       </div>
     </div>
 </div>

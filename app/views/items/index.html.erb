@@ -1,61 +1,56 @@
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>errors
-  <% @item.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
-
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+      <br>
       <%= render "customers/list",item:@item,customer:@customer %>
     </div>
 
       <div class="col-md-8 offset-md-1">
-        <h2><span class="badge badge-pill badge-dark">思ひでぽろぽろ</span></h2>
+        <br>
+        <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">思ひでぽろぽろ</font></span></h2>
 
-            <table class="table">
-              <thead>
-                <tr>
-                  <td><strong>来遊者</strong></td>
-                  <td><strong>推し画像</strong></td>
-                  <td><strong>推しもん</strong></td>
-                  <td><strong>紹介</strong></td>
-                  <td><strong>懐かし釦</strong></td>
-                  <td><strong>コメント</strong></td>
-                </tr>
-              </thead>
+          <table class="table">
+            <thead>
+              <tr>
+                <td><strong>来遊者</strong></td>
+                <td><strong>推し画像</strong></td>
+                <td><strong>推しもん</strong></td>
+                <td><strong>紹介</strong></td>
+                <td><strong>懐かし釦</strong></td>
+                <td><strong>コメント</strong></td>
+              </tr>
+            </thead>
 
-          　 　<tbody>
-          　 　 <% @items.each do |item| %>
-                <tr>
-                  <td>
-                    <%= link_to customer_path(item.customer) do %>
-                    <%= attachment_image_tag item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %>
-                  </td>
-                    <% end %>
-                  <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
-                  <td><%= link_to item.name, item_path(item.id) %></td>
-                  <td><%= item.guide %></td>
-                  <td>
-                    <% if item.customer.id != current_customer.id %>
-                    <%= render "favorites/favorite-btn", item: item %>
-                    <% else %>
-                    <sapn class="far fa-heart" style="color:#00A0E9"> <%= item.favorites.count %></sapn>
-                    <% end %>
-                  </td>
-                  <td>
-                    <%= link_to item_path(item.id) do %>
-                      <i class="far fa-comment"></i> <%= "#{item.comments.count}" %>
-                    <% end %>
-                  </td>
-                </tr>
-                <% end %>
+        　 　<tbody>
+        　 　 <% @items.each do |item| %>
+              <tr>
+                <td>
+                  <%= link_to customer_path(item.customer) do %>
+                  <%= attachment_image_tag item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded" %>
+                </td>
+                  <% end %>
+                <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>
+                <td><%= link_to item.name, item_path(item.id) %></td>
+                <td><%= item.guide %></td>
+                <td>
+                  <% if item.customer.id != current_customer.id %>
+                  <%= render "favorites/favorite-btn", item: item %>
+                  <% else %>
+                  <sapn class="far fa-heart" style="color:#00A0E9"> <%= item.favorites.count %></sapn>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to item_path(item.id) do %>
+                    <i class="far fa-comment"></i> <%= "#{item.comments.count}" %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
                 <div class="pagination">
                 <%= paginate @items %>
                 </div>
-              </tbody>
-            </table>
+            </tbody>
+          </table>
       </div>
   </div>
 </div>

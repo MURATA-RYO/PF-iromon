@@ -1,43 +1,41 @@
-<% if @customer.errors.any? %>
-  <%= @customer.errors.count %>errors
-  <% @customer.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %> 
+<!--<%# if @customer.errors.any? %>-->
+<!--  <%#= @customer.errors.count %>errors-->
+<!--  <%# @customer.errors.full_messages.each do |message| %>-->
+<!--    <%#= message %>-->
+<!--  <%# end %>-->
+<!--<%# end %> -->
 
-<div class="pl-xl-5">
-    <div class="container">
-      <div class="form-horizontal">
-      <h2><span class="badge badge-pill badge-dark">プロフィール変更</span></h2>
-        <%= form_with model:@customer, local:true do |f| %>
-          
-            
-            <div class="form-group row">
-              <%= f.label :プロフィール画像, class: "col-sm-3 col-form-label" %>
-              <div class="col-sm-9">
-              <%= f.attachment_field :profile_image %>
-              </div>
-            </div>
-            
-            <div class="form-group row">
-              <%= f.label :ニックネーム, class: "col-sm-3 col-form-label" %>
-              <div class="col-sm-9">
-              <%= f.text_field :name, size: 32 %>
-              </div>
-            </div>
-            
-            <div class="form-group row">
-              <%= f.label :一言, class: "col-sm-3 col-form-label" %>
-              <div class="col-sm-9">
-              <%= f.text_area :introduction, size: 32 %>
-              </div>
-            </div>
-            
-            <div class="col-md-8 text-center">
-            <br><%= f.submit "変更", class: "btn btn-sm btn-block w-50 btn-warning" %> 
-            </div>
+<div class="d-flex align-items-center" style="height:860px;">
+  <div class="container">
+    <div class="form-horizontal">
+      <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">絵姿変更</font></strong></h3>
+      <%= form_with model:@customer, local:true do |f| %>
+
+        <div class="form-group row">
+          <%= f.label :絵姿, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.attachment_field :profile_image %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :愛称, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.text_field :name, size: 29 %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :一言, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.text_area :introduction, size: 32 %>
+          </div>
+        </div>
+
+        <div class="col-md-8 text-center">
+        <br><%= f.submit "変更", class: "btn btn-sm w-50 btn-outline-warning" %>
+        </div>
         <% end %>
-        
     </div>
   </div>
-</div> 
+</div>

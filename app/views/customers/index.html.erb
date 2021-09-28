@@ -1,48 +1,37 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+      <br>
       <%= render "customers/list",item:@item,customer:@customer %>
   　</div>
+      
+    <div class="col-md-8 offset-md-1">
+      <br>
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">来遊者一覧</font></span></h2>
 
-      <div class="col-md-8 offset-md-1">
-        <h2><span class="badge badge-pill badge-dark">来遊者一覧</span></h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>絵姿</th>
+              <th>愛称</th>
+              <th>思ひで録</th>
+            </tr>
+          </thead>
 
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>イメージ</th>
-                  <th>ニックネーム</th>
-                  <!--<th>フォロー</th>-->
-                  <!--<th>フォロワー</th>-->
-                  <th>思ひで一覧</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @customers.each do |customer| %>
-                <tr>
-                  <td><%= attachment_image_tag customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg" %></td>
-                  <td><span><%= customer.name %></span></td>
-                  <!--<td><%#= customer.followings.count %></td>-->
-                  <!--<td><%#= customer.followers.count %></td>-->
-                  <!--<td>-->
-                    <%# if customer_signed_in? && current_customer != @customer %>
-                  <!--  <%# if current_customer.following?(customer) %>-->
-                  <!--    <%#= link_to "", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info btn-block fas fa-praying-hands" %>-->
-                  <!--  <%# else %>-->
-                  <!--    <%#= link_to "", customer_relationships_path(customer.id), method: :post, class: "btn btn-success btn-block fas fa-thumbs-up" %>-->
-                  <!--  <%# end %>-->
-                    <%# end %>
-                  <!--</td>-->
-                  <td><%= link_to "", customer_path(customer.id), class: "btn btn-success w-75 fas fa-list-alt" %></td>
-                </tr>
-          <% end %>
-                <br>
-                <div class="pagination">
-                <%= paginate @customers %>
-                </div>
-              </tbody>
-            </table>
-      </div>
+          <tbody>
+            <% @customers.each do |customer| %>
+            <tr>
+              <td><%= attachment_image_tag customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded" %></td>
+              <td><span><%= customer.name %></span></td>
+              <td><%= link_to "", customer_path(customer.id), class: "btn btn-outline-warning w-75 fas fa-list-alt" %></td>
+            </tr>
+            <% end %>
+              <br>
+              <div class="pagination">
+              <%= paginate @customers %>
+              </div>
+          </tbody>
+        </table>
+    </div>
   </div>
 </div>

@@ -8,23 +8,25 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.customer_id = current_customer.id 
-    
+    @item.customer_id = current_customer.id
     # @item = current_customer.items.new(item_params)          
     tag_list = params[:item][:tag_name].split(nil)
-    
-    if @item.save!
-      flash[:notice] = 'successfully'
+    # byebug
+    if @item.save
+       #byebug
+      # flash[:notice] = 'successfully'
       # redirect_to item_path(@item.id)
-      
-      @item.save_tag(tag_list)          
+      @item.save_tag(tag_list)   
       redirect_to items_path
-      
     else
-      @customer = current_customer
-      @items = Item.all
-      render :index
-      
+       #byebug
+      @tag_list = Tag.all
+      @item = Item.new
+      @item = current_customer.items.new
+      #@customer = current_customer
+      #@items = Item.all
+      render action: :new
+      #render :new
       #redirect_back(fallback_location: root_path) 
       
     end  

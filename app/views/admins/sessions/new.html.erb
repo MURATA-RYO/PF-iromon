@@ -1,34 +1,32 @@
-<h4 class ="text-center m-5 border-bottom p-1">管理者ログイン</h4>
+<div class="d-flex align-items-center" style="height:860px;">
+  <div class="container">
+    <div class="form-horizontal">
+      <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">管理者ログイン</font></strong></h3>
+      <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
 
-<%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
-  
-  <div class ="pl-xl-5">
-    <div class ="container">
-      <div class="form-horizontal">
-  
-      <div class="form-group row">
-        <%= f.label :メールアドレス, class: "col-sm-3 col-form-label" %>
-        <div class="col-sm-9">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
+        <div class="form-group row">
+          <%= f.label :メールアドレス, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
+          </div>
         </div>
-      </div>
-      
-      <div class="form-group row">
-        <%= f.label :パスワード, class: "col-sm-3 col-form-label" %>
-        <div class="col-sm-9">
-        <%= f.password_field :password, autocomplete: "current-password", size: 32 %>
+  
+        <div class="form-group row">
+          <%= f.label :パスワード, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.password_field :password, autocomplete: "current-password", size: 32 %>
+          </div>
         </div>
-      </div>
-      
-      <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-      <% end %>
-      
-      <div class="col-md-8 text-center">
-        <%= f.submit "ログイン", class: "btn btn-sm btn-block btn-success" %>
-      </div>
-    <% end %>
+  
+        <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, :style=>"color:white;" %>
+        <% end %>
+  
+        <div class="col-md-8 text-center">
+          <%= f.submit "ログイン", class: "btn btn-sm btn-block btn-success" %>
+        </div>
+          <% end %>
       </div>
     </div>
   </div>

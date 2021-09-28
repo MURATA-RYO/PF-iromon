@@ -21,78 +21,73 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span claas="navbar-toggler-icon"></span>
             </button>
-  
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <li>
                 <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird text-light" %>
                 <a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%= current_customer.id %>/">
-                  Home
+                  懐旧館
                 </a>
               </li>
               <li>
                 <a class="fas fa-ghost nav-link text-light" href="/customers">
-                  Customers
+                  来遊者
                 </a>
               </li>
               <li>
                 <a class="fas fa-robot nav-link text-light" href="/items">
-                  Items
+                  思ひで録
                 </a>
               </li>
               <li>
                 <a class="fas fa-bacteria nav-link text-light" href="/inquiries">
-                  Inq
+                  問掛け
                 </a>
               </li>
               <li>
                 <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/customers/sign_out">
-                  Logout
+                  お還り
                 </a>
               </li>
-              
+
               <% elsif admin_signed_in? %>
-              
-              <div class="text-center">
-              <span class="text-light"><strong>今、管理者です</strong></span>　
+
+              <div class="d-flex align-items-center">
+              <span class="text-light"><strong>今、管理者です</strong></span>
               </div>
-              
+
               <li>
                 <a class="fas fa-ghost nav-link text-light" href="/admins/customers">
-                  Customers
+                  来遊者一覧
                 </a>
               </li>
               <li>
                 <a class="fas fa-robot nav-link text-light" href="/admins/items">
-                  Items
+                  投稿一覧
                 </a>
               </li>
               <li>
                 <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">
-                  Logout
+                  ログアウト
                 </a>
               </li>
-          
+
               <% else %>
               <li>
                 <a class="fas fa-kiwi-bird nav-link text-light" href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a class="fas fa-frog nav-link text-light" href="/home/about">
-                  About
+                  懐旧館
                 </a>
               </li>
               <li>
                 <a class="fas fa-id-card nav-link text-light" href="/customers/sign_up">
-                  sign up
+                  初遊
                 </a>
               </li>
               <li>
                 <a class="fas fa-joint nav-link text-light" href="/customers/sign_in">
-                  login
+                  再遊
                 </a>
               </li>
               <% end %>
@@ -101,15 +96,16 @@
           </div>
         </nav>
       </header>
-   
+
       <% if flash[:notice] %>
         <div class="alert alert-primary text-center" role="alert"><strong><%= notice %></strong></div>
       <% end %>
       <% if flash[:alert] %>
         <div class="alert alert-danger text-center" role="alert"><strong><%= alert %></strong></div>
       <% end %>
-    
+
       <main>
+        <br>
         <div class="text-center">
           <% if customer_signed_in? %>
           <%= form_tag(search_path, method: :get) do %>
@@ -131,7 +127,7 @@
       </main>
 
       <footer>
-        <strong>2021 iromon</strong>
+        <strong>2021 <%= link_to "iromon", home_about_path(current_customer), :style=>"color:white;" %></strong>
       </footer>
     </div>
   </body>

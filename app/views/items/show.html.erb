@@ -1,38 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-1 text-center">
-      <h2><span class="badge badge-pill badge-dark">推しもん詳細</span></h2>
+      <br>
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">推しもん</font></span></h2>
     </div>
-    
-  <!--  投稿詳細-->
-　
-  <!--<%#= @item.name %>-->
-  
-  <!--<%# @post_tags.each do |tag| %>-->
-  <!--<span>-->
-  <!--  <%#= link_to tag.tag_name, tag_items_path(tag_id: tag.id) %>-->
-  <!--  <%#= "(#{tag.items.count})" %>-->
-  <!--  </span>-->
-    
-    
-    
-        <div class="col-lg-6">
-          <h5><strong>推し画像</strong></h5>
-          <%= attachment_image_tag @item, :image, :fill, 350, 350, format: 'no_image.jpg' %>
-        </div>
+
+      <div class="col-lg-6">
+        <h5><strong>推し絵姿</strong></h5>
+        <%= attachment_image_tag @item, :image, :fill, 350, 350, format: "no_image.jpg", class:"rounded" %>
+      </div>
 
         <div class="col-lg-6">
-          <div class="table table-borderless">  
+          <div class="table table-borderless">
             <tr>
               <h5><strong>推しもん</strong></h5>
               <p><%= @item.name %></p>
             </tr>
-            
+
             <tr>
               <h5><strong>紹介</strong></h5>
               <p><%= @item.guide %></p>
             </tr>
-          
+
             <tr>
               <h5><strong>懐かしいいね</strong></h5>
               <% if @item.customer.id != current_customer.id %>
@@ -41,7 +30,7 @@
               <sapn class="far fa-heart" style="color:#00A0E9"> <%= @item.favorites.count %></sapn>
               <% end %>
             </tr>
-              
+
             <tr>
               <h5><strong>コメント数</strong></h5>
               <p><span class="far fa-comment" style="color:#00A0E9"> <%= @item.comments.count %></span></p>
@@ -50,23 +39,23 @@
             <%= render "comments/comment", item: @item %>
 
           </div>
-                    
+
               <div class="new-comment">
                 <%= form_with(model:[@item, @comment], remote: true) do |f| %>
                 <%= f.text_area :comment, size:"90x5",placeholder: "コメントをここに" %>
                 <br><%= f.submit "送信" %>
                 <% end %>
               </div>
-              
+
               <br>
               <div class="pull-left">
-              <% if @customer.id == current_customer.id %>
-              <%= link_to edit_customer_path(current_customer.id) do %>
-              <%= link_to "", edit_item_path(@item.id), class: "btn btn-primary btn-sm w-25 fas fa-edit" %>
-              <%= link_to "", item_path(@item.id), method: :delete, "deta-confirm" => "削除しますか？", class: "btn btn-danger w-25 btn-sm fas fa-trash-alt" %>
-              <% end %>
-              <% end %>
+                <% if @customer.id == current_customer.id %>
+                <%= link_to edit_customer_path(current_customer.id) do %>
+                <%= link_to "", edit_item_path(@item.id), class: "btn btn-outline-info btn-sm w-25 fas fa-edit" %>
+                <%= link_to "", item_path(@item.id), method: :delete, "deta-confirm" => "削除しますか？", class: "btn btn-outline-danger w-25 btn-sm fas fa-trash-alt" %>
+                <% end %>
+                <% end %>
               </div>
        </div>
   </div>
-</div>    
+</div>

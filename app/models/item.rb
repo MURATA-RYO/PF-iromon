@@ -11,9 +11,10 @@ class Item < ApplicationRecord
   end
   
   attachment :image
-  validates :name, presence: true
-  validates :guide, presence: true, length: { maximum: 200 }
-
+   validates :name, presence: true
+   validates :guide, presence: true, length: { maximum: 200 }
+   #validates :tag_name, presence: true
+  
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
