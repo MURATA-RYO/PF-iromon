@@ -4,6 +4,8 @@ class Admins::CustomersController < ApplicationController
     # @customer = Customer.new
   # end  
   
+  before_action :authenticate_admin!
+  
   def index
     @customers = Customer.all
     @customers = Customer.page(params[:page]).reverse_order

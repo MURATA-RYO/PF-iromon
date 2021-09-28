@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+    
+    before_action :authenticate_customer!
   
   def new
     @tag_list = Tag.all
