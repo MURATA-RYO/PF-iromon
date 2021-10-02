@@ -19,7 +19,7 @@
               <tbody>
                 <% @items.each do |item| %>
                 <tr>
-                  <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg" %></td>  
+                  <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>  
                   <td><%= link_to item.name, item_path(item.id) %></td>
                   <td><%= item.guide %></td>
                 </tr>

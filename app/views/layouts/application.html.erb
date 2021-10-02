@@ -4,7 +4,7 @@
     <title>いろもん</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/fb53ccb37d.js" crossorigin="anonymous"></script>
@@ -25,28 +25,28 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
-              <li>
+              <li class="nav-item">
                 <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird text-light" %>
                 <a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%= current_customer.id %>/">
                   懐旧館
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-ghost nav-link text-light" href="/customers">
                   来遊者
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-robot nav-link text-light" href="/items">
                   思ひで録
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-bacteria nav-link text-light" href="/inquiries">
                   問掛け
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/customers/sign_out">
                   お還り
                 </a>
@@ -58,34 +58,34 @@
               <span class="text-light"><strong>今、管理者です</strong></span>
               </div>
 
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-ghost nav-link text-light" href="/admins/customers">
                   来遊者一覧
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-robot nav-link text-light" href="/admins/items">
                   投稿一覧
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">
                   ログアウト
                 </a>
               </li>
 
               <% else %>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-kiwi-bird nav-link text-light" href="/">
                   懐旧館
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-id-card nav-link text-light" href="/customers/sign_up">
                   初遊
                 </a>
               </li>
-              <li>
+              <li class="nav-item">
                 <a class="fas fa-joint nav-link text-light" href="/customers/sign_in">
                   再遊
                 </a>
@@ -98,7 +98,7 @@
       </header>
 
       <% if flash[:notice] %>
-        <div class="alert alert-primary text-center" role="alert"><strong><%= notice %></strong></div>
+        <div class="alert alert-warning text-center" role="alert"><strong><%= notice %></strong></div>
       <% end %>
       <% if flash[:alert] %>
         <div class="alert alert-danger text-center" role="alert"><strong><%= alert %></strong></div>
@@ -122,7 +122,6 @@
           <% end %>
           <% end %>
         </div>
-        <%= flash[:notice] %>
         <%= yield %>
       </main>
 
