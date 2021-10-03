@@ -6,7 +6,7 @@
     <br>
     <table class="table">
       <tr>
-        <td><strong>ニックネーム</strong></td>
+        <td><strong>愛称</strong></td>
         <td><%= customer.name %></td>
       </tr>
       <tr>
@@ -14,11 +14,11 @@
         <td><%= customer.introduction %></td>
       </tr>
       <tr>
-        <td><strong>フォロー</strong></td>
+        <td><strong>関心</strong></td>
         <td><%= link_to customer.followings.count, customer_followings_path(customer), :style=>"color:white;" %></td>
       </tr>
       <tr>
-        <td><strong>フォロワー</strong></td>
+        <td><strong>愛好者</strong></td>
         <td><%= link_to customer.followers.count, customer_followers_path(customer), :style=>"color:white;" %></td>
       </tr>
     </table>

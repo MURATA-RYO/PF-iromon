@@ -10,7 +10,9 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    @items = @customer.items
+    @items = @customer.items.page(params[:page]).reverse_order
+    #@customer = current_customer
+    #@items = @customer.items
     @item = Item.new
   end  
   

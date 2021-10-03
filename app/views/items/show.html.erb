@@ -56,6 +56,10 @@
                 <% end %>
                 <% end %>
               </div>
+              <%#= @item.recognition_tags.inspect %>
+              <% @item.recognition_tags.each do |tag| %>
+              <span class="label"><strong><%= tag.name %></strong></span>
+              <% end %>
        </div>
   </div>
 </div>

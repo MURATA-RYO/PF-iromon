@@ -15,6 +15,11 @@ class ItemsController < ApplicationController
     tag_list = params[:item][:tag_name].split(nil)
     # byebug
     if @item.save
+      tags = Vision.get_image_data(@item.image)
+      #byebug
+      tags.each do |tag|
+      @item.recognition_tags.create(name: tag)
+      end
        #byebug
       # flash[:notice] = 'successfully'
       # redirect_to item_path(@item.id)

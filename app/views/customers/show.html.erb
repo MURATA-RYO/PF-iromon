@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3"><br>
-      <%= render "customers/list",item:@item,customer:@customer %>
+      <%= render "customers/list",customer:@customer %>
 　　</div>
         
       <div class="col-md-8 offset-md-1"><br>
@@ -10,7 +10,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <td><strong>推し画像</strong></td>
+                  <td><strong>推し画像よん</strong></td>
                   <td><strong>推しもん</strong></td>
                   <td><strong>紹介</strong></td>
                 </tr>
@@ -24,6 +24,10 @@
                   <td><%= item.guide %></td>
                 </tr>
                 <% end %>
+                <div class="pagination">
+                <%#= @customers.inspect %>
+                <%= paginate @items %>.
+                </div>
               </tbody>    
             </table>
           

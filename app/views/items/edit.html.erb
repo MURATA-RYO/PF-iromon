@@ -1,34 +1,35 @@
-  <div class ="pl-xl-5">
-    <div class ="container">
-      <div class="form-horizontal">
-        <h2><span class="badge badge-pill badge-dark">推し編集</span></h2>
+  <div class="d-flex align-items-center" style="height:860px;">
+  <div class="container">
+    <div class="form-horizontal">
+
+      <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">思ひでの撰</font></strong></h3>
         <%= form_with model:@item, url:"/items/#{@item.id}", local:true do |f| %>
-        
+
         <div class="form-group row">
-          <%= f.label :推し画像, class: "col-sm-3 col-form-label" %>
+          <%= f.label :推し画像, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
           <div class="col-sm-9">
           <%= f.attachment_field :image %>
           </div>
-        </div>  
-        
+        </div>
+
         <div class="form-group row">
-          <%= f.label :推しもん, class: "col-sm-3 col-form-label" %>
+          <%= f.label :推しもん, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
           <div class="col-sm-9">
-          <%= f.text_field :name, size: 15 %>
-          </div>
-        </div>  
-        
-        <div class="form-group row">
-          <%= f.label :紹介, class: "col-sm-3 col-form-label" %>
-          <div class="col-sm-9">
-          <%= f.text_field :guide %>
+          <%= f.text_field :name, size: 30 %>
           </div>
         </div>
-        
+
+        <div class="form-group row">
+          <%= f.label :紹介, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <div class="col-sm-9">
+          <%= f.text_field :guide, size: 30 %>
+          </div>
+        </div>
+
         <div class="col-md-8 text-center">
-        <%= f.submit "編集", class: "btn btn-sm w-50 btn-success" %>
+        <%= f.submit "編集", class: "btn btn-outline-warning w-50 btn-sm" %>
         </div>
         <% end %>
       </div>
     </div>
-  </div> 
+  </div>
