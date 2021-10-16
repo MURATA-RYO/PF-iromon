@@ -3,48 +3,50 @@
 <%= render "devise/shared/error_messages", resource: resource %>
   <div class="d-flex align-items-center" style="height:860px;">
     <div class ="container">
-      <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">来遊者登録</font></strong></h3>
+      <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">来遊者登館</font></strong></h3>
 
         <div class ="container">
           <div class="form-horizontal">
       
+            <div class="mx-auto" style="width: 490px;">
             <div class="form-group row">
-              <%= f.label :ニックネーム, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-              <div class="col-sm-9">
+              <%= f.label :愛称, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
+              <div class="col-sm-7">
               <%= f.text_field :name, autofocus: true, size: 32 %>
               </div>
             </div>
 
             <div class="form-group row">
-              <%= f.label :メールアドレス, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-              <div class="col-sm-9">
+              <%= f.label :電子居所, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
+              <div class="col-sm-7">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
               </div>
             </div>
 
             <div class="form-group row">
-              <%= f.label :パスワード（６文字以上）, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+              <%= f.label :合言葉（６文字以上）, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
               <% if @minimum_password_length %>
               <% end %>
-              <div class="col-sm-9">
+              <div class="col-sm-7">
               <%= f.password_field :password, autocomplete: "new-password", size: 32 %>
               </div>
             </div>
   
             <div class="form-group row">
-              <%= f.label :パスワード（確認用）, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-              <div class="col-sm-9">
+              <%= f.label :合言葉（確認用）, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
+              <div class="col-sm-7">
               <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 32 %>
               </div>
             </div>
-
-            <div class="text-center">
-              <%= f.submit "登録", class: "btn btn-sm w-50 btn-outline-warning" %>
             </div>
-            <% end %>
-
+        
+            <div class="text-center">
+              <%= f.submit "入館", class: "btn btn-sm w-50 btn-outline-warning rounded-pill" %>
+              <% end %>
+              <br>
+              <%= render "devise/shared/links" %>
+            </div>
           </div>
         </div>
     </div>
   </div>
-    <%#= render "devise/shared/links" %>
