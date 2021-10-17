@@ -13,46 +13,52 @@
   <body>
     <div class="container-a">
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <!--<nav class="navbar navbar-expand-lg navbar-dark">-->
+
+        <nav class="navbar navbar-expand-md navbar-dark ml-auto">
           <div class="container">
           <a class="navbar-brand" href="/">
             <span><strong>いろもん</strong></span>
           </a>
+
             <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
- 
               <span claas="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <!--<div class="collapse navbar-collapse" id="navbarNavDropdown">-->
               <div id="navbarToggleExternalContent" class="collapse navbar-collapse">
               <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
               <li class="nav-item">
-                <%#= link_to "Home", customer_path(current_customer), class: "fas fa-kiwi-bird text-light" %>
-                <a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%= current_customer.id %>/">
-                  懐旧館
-                </a>
+                <%= link_to "懐旧館", customer_path(current_customer), class: "fas fa-kiwi-bird nav-link text-light" %>
+                <!--<a class="fas fa-kiwi-bird nav-link text-light" href="/customers/<%#= current_customer.id %>/">-->
+                <!--  懐旧館-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-ghost nav-link text-light" href="/customers">
-                  来遊者
-                </a>
+                <%= link_to "来遊者", customers_path, class: "fas fa-ghost nav-link text-light" %>
+                <!--<a class="fas fa-ghost nav-link text-light" href="/customers">-->
+                <!--  来遊者-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-robot nav-link text-light" href="/items">
-                  思ひで録
-                </a>
+                <%= link_to "思ひで録", items_path, class: "fas fa-robot nav-link text-light" %>
+                <!--<a class="fas fa-robot nav-link text-light" href="/items">-->
+                <!--  思ひで録-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-bacteria nav-link text-light" href="/inquiries">
-                  問掛け
-                </a>
+                <%= link_to "問掛け", inquiries_path, class: "fas fa-bacteria nav-link text-light" %>
+                <!--<a class="fas fa-bacteria nav-link text-light" href="/inquiries">-->
+                <!--  問掛け-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/customers/sign_out">
-                  お還り
-                </a>
+                <%= link_to "お還り", destroy_customer_session_path, method: :delete, class: "fas fa-share-square nav-link text-light" %>
+                <!--<a class="fas fa-share-square nav-link text-light" data-method="delete" href="/customers/sign_out">-->
+                <!--  お還り-->
+                <!--</a>-->
               </li>
 
               <% elsif admin_signed_in? %>
@@ -62,40 +68,47 @@
               </div>
 
               <li class="nav-item">
-                <a class="fas fa-ghost nav-link text-light" href="/admins/customers">
-                  来遊者一覧
-                </a>
+                <%= link_to "来遊者一覧", admins_customers_path, class: "fas fa-ghost nav-link text-light" %>
+                <!--<a class="fas fa-ghost nav-link text-light" href="/admins/customers">-->
+                <!--  来遊者一覧-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-robot nav-link text-light" href="/admins/items">
-                  投稿一覧
-                </a>
+                <% link_to "投稿一覧", admins_items_path, class: "fas fa-robot nav-link text-light" %>
+                <!--<a class="fas fa-robot nav-link text-light" href="/admins/items">-->
+                <!--  投稿一覧-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">
-                  ログアウト
-                </a>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-robot nav-link text-light" %>
+                <!--<a class="fas fa-share-square nav-link text-light" data-method="delete" href="/admins/sign_out">-->
+                <!--  ログアウト-->
+                <!--</a>-->
               </li>
 
               <% else %>
               <li class="nav-item">
-                <a class="fas fa-kiwi-bird nav-link text-light" href="/">
-                  懐旧館
-                </a>
+                <%= link_to "懐旧館", root_path, class: "fas fa-kiwi-bird nav-link text-light" %>
+                <!--<a class="fas fa-kiwi-bird nav-link text-light" href="/">-->
+                <!--  懐旧館-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-id-card nav-link text-light" href="/customers/sign_up">
-                  初遊
-                </a>
+                <%= link_to "初遊", new_customer_registration_path, class: "fas fa-id-card nav-link text-light" %>
+                <!--<a class="fas fa-id-card nav-link text-light" href="/customers/sign_up">-->
+                <!--  初遊-->
+                <!--</a>-->
               </li>
               <li class="nav-item">
-                <a class="fas fa-joint nav-link text-light" href="/customers/sign_in">
-                  再遊
-                </a>
+                <%= link_to "再遊", new_customer_session_path, class: "fas fa-joint nav-link text-light" %>
+                <!--<a class="fas fa-joint nav-link text-light" href="/customers/sign_in">-->
+                <!--  再遊-->
+                <!--</a>-->
               </li>
               <% end %>
               </ul>
-            </div>
+              </div>
+            <!--</div>-->
           </div>
         </nav>
       </header>

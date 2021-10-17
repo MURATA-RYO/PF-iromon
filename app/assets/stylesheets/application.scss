@@ -66,3 +66,41 @@ textarea {
 //  // text-decoration: none;
 //  color: white ; 
 // }
+
+.shadow{
+    // padding: 10px;
+    color: #E2E3CB;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow:
+           1px 1px 0px #000, -1px -1px 0px #000,
+          -1px 1px 0px #000,  1px -1px 0px #000,
+           1px 0px 0px #000, -1px  0px 0px #000,
+           0px 1px 0px #000,  0px -1px 0px #000;
+    margin: 0;
+}
+
+.shadow2{
+    // padding: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow:
+           1px 1px 0px #CCC, -1px -1px 0px #CCC,
+          -1px 1px 0px #CCC,  1px -1px 0px #CCC,
+           1px 0px 0px #CCC, -1px  0px 0px #CCC,
+           0px 1px 0px #CCC,  0px -1px 0px #CCC;
+    margin: 0;
+}
+
+.pagination>li>a {          
+  border: none;    
+  color: #E2E3CB; 
+  font-weight: bold;
+  text-shadow:
+           1px 1px 0px #000, -1px -1px 0px #000,
+          -1px 1px 0px #000,  1px -1px 0px #000,
+           1px 0px 0px #000, -1px  0px 0px #000,
+           0px 1px 0px #000,  0px -1px 0px #000;
+    margin: 0;
+}

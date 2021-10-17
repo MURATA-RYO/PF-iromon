@@ -6,32 +6,34 @@
         <%= form_with model:@inquiry,url:inquiries_thanks_path,method: :post,local: true do |f| %>
       </div>
 
+        <br>
+        <div class="mx-auto" style="width: 490px;">
         <table class="table table table-striped table-hover">
           <tr>
-            <th><font color="#E2E3CB">愛称</font></th>
+            <th><font class="shadow" color="#E2E3CB">愛称</font></th>
             <td>
               <%= f.hidden_field :name %>
-              <%= @inquiry.name %>
+              <strong class="shadow2"><%= @inquiry.name %></strong>
             </td>
           </tr>
           <tr>
-            <th><font color="#E2E3CB">電子居所</font></th>
+            <th><font class="shadow" color="#E2E3CB">電子居所</font></th>
             <td>
               <%= f.hidden_field :email %>
-              <%= @inquiry.email %>
+              <strong class="shadow2"><%= @inquiry.email %></strong>
             </td>
           </tr>
           <tr>
-            <th><font color="#E2E3CB">問掛け内容</font></th>
+            <th><font class="shadow" color="#E2E3CB">問掛け内容</font></th>
             <td>
               <%= f.hidden_field :message %>
-              <%= simple_format(@inquiry.message) %>
+              <strong class="shadow2"><%= simple_format(@inquiry.message) %></strong>
             </td>
           </tr>
         </table>
         
         <div class="text-center">
-          <%= f.submit "送信", :class => "btn btn-sm w-50 btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
+          <%= f.submit "送信", :class => "btn btn-sm w-100 btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
         </div>      
       <% end %>
     </div>  

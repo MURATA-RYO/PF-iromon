@@ -8,14 +8,14 @@
     
           <div class="mx-auto" style="width: 490px;">
             <div class="form-group row">
-              <%= f.label :電子居所, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
+              <%= f.label :電子居所, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
               <div class="col-sm-7">
               <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
               </div>
             </div>
 
             <div class="form-group row">
-              <%= f.label :合言葉, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
+              <%= f.label :合言葉, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
               <div class="col-sm-7">
               <%= f.password_field :password, autocomplete: "current-password", size: 32 %>
               </div>
@@ -23,7 +23,7 @@
 
             <div class="form-group row">
               <% if devise_mapping.rememberable? %>
-              <%= f.label :愛・おぼえていますか, class: "col-sm-5 col-form-label", :style=>"color:white;" %>  
+              <%= f.label :愛・おぼえていますか, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>  
               <div class="col-sm-7">
               <%= f.check_box :remember_me %>
               <% end %>

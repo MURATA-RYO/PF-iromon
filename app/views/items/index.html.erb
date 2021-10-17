@@ -11,7 +11,7 @@
 
       <table class="table table-striped table-hover">
         <thead>
-          <tr>
+          <tr class="shadow">
             <td><strong><font color="#E2E3CB">来遊者</font></strong></td>
             <td><strong><font color="#E2E3CB">推し画像</font></strong></td>
             <td><strong><font color="#E2E3CB">推しもん</font></strong></td>
@@ -31,8 +31,8 @@
             </td>
               
             <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>
-            <td><%= link_to item.name, item_path(item.id), :style=>"color:black; font-weight:bold;" %></td>
-            <td><strong><%= item.guide %></strong></td>
+            <td><span class="shadow2"><%= link_to item.name, item_path(item.id), :style=>"color:black; font-weight:bold;" %></span></td>
+            <td><span class="shadow2"><%= item.guide %></span></td>
             <td>
               <% if item.customer.id != current_customer.id %>
               <%= render "favorites/favorite-btn", item: item %>
