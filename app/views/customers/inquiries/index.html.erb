@@ -4,6 +4,7 @@
       <div class="text-center">
         <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">問掛け</font></span></h2>
         <%= form_with model:@inquiry,url:inquiries_confirm_path,method: :post,local: true do |f| %>
+        <br>
       </div>
       
         <% if @inquiry.errors.any? %>
@@ -17,23 +18,24 @@
           </div>
         <% end %>
       
-        <table class="table">
+        <div class="mx-auto" style="width: 490px;">
+        <table class="table table table-striped table-hover">
           <tr>
             <th><font color="#E2E3CB">愛称</font><span class="text-danger">（必須）</span></th>
-            <td><%= f.text_field :name, size: 28 %></td>
+            <td><%= f.text_field :name, size: 29 %></td>
           </tr>
           <tr>
-            <th><font color="#E2E3CB">メールアドレス</font><span class="text-danger">（必須）</span></th>
-            <td><%= f.text_field :email, size: 28 %></td>
+            <th><font color="#E2E3CB">電子居所</font><span class="text-danger">（必須）</span></th>
+            <td><%= f.text_field :email, size: 29 %></td>
           </tr>
           <tr>
             <th><font color="#E2E3CB">問掛け内容</font></th>
             <td><%= f.text_area :message %></td>
           </tr>
         </table>
-        
+        </div>
         <div class="text-center">
-          <%= f.submit "確認", class: "btn w-50 btn-sm btn-outline-warning" %>
+          <%= f.submit "確認", class: "btn w-50 btn-sm btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
         </div>
       <% end %>
     </dvi>

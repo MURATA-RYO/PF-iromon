@@ -1,36 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3"><br>
+    <div class="col-md-3">
+      <br>
       <%= render "customers/list",customer:@customer %>
 　　</div>
-        
-      <div class="col-md-8 offset-md-1"><br>
-        <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">思ひでぽろぽろ</font></span></h2>
-          
-            <table class="table">
-              <thead>
-                <tr>
-                  <td><strong>推し画像よん</strong></td>
-                  <td><strong>推しもん</strong></td>
-                  <td><strong>紹介</strong></td>
-                </tr>
-              </thead>
-        
-              <tbody>
-                <% @items.each do |item| %>
-                <tr>
-                  <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>  
-                  <td><%= link_to item.name, item_path(item.id) %></td>
-                  <td><%= item.guide %></td>
-                </tr>
-                <% end %>
-                <div class="pagination">
-                <%#= @customers.inspect %>
-                <%= paginate @items %>.
-                </div>
-              </tbody>    
-            </table>
-          
-      </div>
+
+    <div class="col-md-8 offset-md-1">
+      <br>
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">思ひでぽろぽろ</font></span></h2>
+
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <td><strong><font color="#E2E3CB">推し画像</font></strong></td>
+            <td><strong><font color="#E2E3CB">推しもん</font></strong></td>
+            <td><strong><font color="#E2E3CB">紹介</font></strong></td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+            <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>
+            <td><%= link_to item.name, item_path(item.id), :style=>"color:black; font-weight:bold;" %></td>
+            <td><strong><%= item.guide %></strong></td>
+          </tr>
+          <% end %>
+          <div class="pagination">
+          <%#= @customers.inspect %>
+          <%= paginate @items %>.
+          </div>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>  
+</div>

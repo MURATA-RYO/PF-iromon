@@ -1,14 +1,13 @@
-<%= flash[:alert] %>
 <%= form_with model:@customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
   <div class="d-flex align-items-center" style="height:860px;">
     <div class ="container">
       <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">来遊者登館</font></strong></h3>
 
-        <div class ="container">
-          <div class="form-horizontal">
-      
-            <div class="mx-auto" style="width: 490px;">
+      <div class ="container">
+        <div class="form-horizontal">
+    
+          <div class="mx-auto" style="width: 490px;">
             <div class="form-group row">
               <%= f.label :愛称, class: "col-sm-5 col-form-label", :style=>"color:white;" %>
               <div class="col-sm-7">
@@ -38,15 +37,16 @@
               <%= f.password_field :password_confirmation, autocomplete: "new-password", size: 32 %>
               </div>
             </div>
-            </div>
-        
+            
             <div class="text-center">
-              <%= f.submit "入館", class: "btn btn-sm w-50 btn-outline-warning rounded-pill" %>
-              <% end %>
+              <%= f.submit "入館", class: "btn btn-sm w-100 btn-outline-warning rounded-pill" %>
               <br>
               <%= render "devise/shared/links" %>
             </div>
-          </div>
+          </div>  
+        
         </div>
+      </div>
     </div>
   </div>
+<% end %>                

@@ -6,7 +6,7 @@
         <%= form_with model:@inquiry,url:inquiries_thanks_path,method: :post,local: true do |f| %>
       </div>
 
-        <table class="table">
+        <table class="table table table-striped table-hover">
           <tr>
             <th><font color="#E2E3CB">愛称</font></th>
             <td>
@@ -15,7 +15,7 @@
             </td>
           </tr>
           <tr>
-            <th><font color="#E2E3CB">メールアドレス</font></th>
+            <th><font color="#E2E3CB">電子居所</font></th>
             <td>
               <%= f.hidden_field :email %>
               <%= @inquiry.email %>
@@ -31,7 +31,7 @@
         </table>
         
         <div class="text-center">
-          <%= f.submit "送信", :class => "btn btn-sm w-50 btn-outline-warning" %>
+          <%= f.submit "送信", :class => "btn btn-sm w-50 btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
         </div>      
       <% end %>
     </div>  

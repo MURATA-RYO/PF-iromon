@@ -4,41 +4,41 @@
     <%= attachment_image_tag customer, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"img-thumbnail" %>
   </div>
     <br>
-    <table class="table">
+    <table class="table table-striped table-hover">
       <tr>
-        <td><strong>愛称</strong></td>
-        <td><%= customer.name %></td>
+        <td><strong><font color="#E2E3CB">愛称</font></strong></td>
+        <td><strong><%= customer.name %></strong></td>
       </tr>
       <tr>
-        <td><strong>一言</strong></td>
-        <td><%= customer.introduction %></td>
+        <td><strong><font color="#E2E3CB">一言</font></strong></td>
+        <td><strong><%= customer.introduction %></strong></td>
       </tr>
       <tr>
-        <td><strong>関心</strong></td>
-        <td><%= link_to customer.followings.count, customer_followings_path(customer), :style=>"color:white;" %></td>
+        <td><strong><font color="#E2E3CB">関心</font></strong></td>
+        <td><strong><%= link_to customer.followings.count, customer_followings_path(customer), :style=>"color:#E2E3CB;" %></strong></td>
       </tr>
       <tr>
-        <td><strong>愛好者</strong></td>
-        <td><%= link_to customer.followers.count, customer_followers_path(customer), :style=>"color:white;" %></td>
+        <td><strong><font color="#E2E3CB">愛好者</font></strong></td>
+        <td><strong><%= link_to customer.followers.count, customer_followers_path(customer), :style=>"color:#E2E3CB;" %></strong></td>
       </tr>
     </table>
 
       <% if customer_signed_in? && current_customer != @customer %>
       <% if current_customer.following?(customer) %>
-        <%= link_to "", customer_relationships_path(customer.id), method: :delete, class: "btn btn-info btn-block fas fa-praying-hands" %>
+        <%= link_to "", customer_relationships_path(customer.id), method: :delete, class: "btn btn-outline-info btn-block fas fa-praying-hands rounded-pill" %>
       <% else %>
-        <%= link_to "", customer_relationships_path(customer.id), method: :post, class: "btn btn-success btn-block fas fa-thumbs-up" %>
+        <%= link_to "", customer_relationships_path(customer.id), method: :post, class: "btn btn-outline-success btn-block fas fa-thumbs-up rounded-pill" %>
       <% end %>
       <% end %>
 
     <br>
     <br>
-    <%= link_to "", edit_customer_path(customer), class: "btn btn-outline-warning btn-block fas fa-theater-masks" %>
-    <br></br>
-    <%= link_to "思ひで投稿", '/items/new', class: "btn btn-sm btn-block btn-outline-warning" %>
+    <%= link_to "絵姿変更", edit_customer_path(customer), class: "btn btn-sm btn-outline-warning btn-block rounded-pill", :style=>"font-weight:bold;" %>
+    <br>
+    <%= link_to "思ひで投稿", '/items/new', class: "btn btn-sm btn-block btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
     <br>
     <%= form_with(model: @tag, url: tags_path, method: :get, local: true) do |f| %>
       <% f.label :tag_id %>
       <%= f.collection_select :tag_id, Tag.all, :id, :tag_name %>
-      <%= f.submit 'タグ検索' %>
+      <%= f.submit "付札検索", class: "btn btn-sm w-50 btn-outline-warning rounded-pill", :style=>"font-weight:bold;" %>
     <% end %>
