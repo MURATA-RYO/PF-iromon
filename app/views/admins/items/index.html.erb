@@ -1,31 +1,28 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
       <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">管理者側来遊者投稿一覧</font></span></h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <td><strong>投稿者</strong></td>
-              <td><strong>投稿画像</strong></td>
-              <td><strong>抹消</strong></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </thead>  
- 
-          <tbody>
-            <tr>
-              <% @items.each do |item| %>
-            　<td><%= attachment_image_tag item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded" %></td>
-          　   <td>
-                <%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %>
-              </td> 
-             <td><%= link_to '', admins_item_path(item.id), method: :delete, class: "btn btn-sm btn-block btn-outline-danger fas fa-skull" %></td>
-            </tr>
+        
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr class="shadow">
+            <td><strong><font color="#E2E3CB">投稿者</font></strong></td>
+            <td><strong><font color="#E2E3CB">投稿画像</font></strong></td>
+            <td><strong><font color="#E2E3CB">抹消</font></strong></td>
+          </tr>
+        </thead>  
+
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+          　<td><%= attachment_image_tag item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded" %></td>
+            <td><%= attachment_image_tag item, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded" %></td>
+            <td><%= link_to '', admins_item_path(item.id), method: :delete, class: "btn btn-sm btn-block btn-outline-danger fas fa-skull rounded-pill" %></td>
             <% end %>
-            <%= paginate @items %>
-          </tbody>
-        </table>
+          </tr>
+          <%= paginate @items %>
+        </tbody>
+      </table>
     </div>
   </div>
-</div>  
+</div>

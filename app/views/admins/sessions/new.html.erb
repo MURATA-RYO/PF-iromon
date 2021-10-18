@@ -4,30 +4,38 @@
       <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">管理者ログイン</font></strong></h3>
       <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
 
-        <div class="form-group row">
-          <%= f.label :メールアドレス, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
+      <div class="container">
+        <div class="form-horizontal">
+          
+          <div class="mx-auto" style="width: 530px;">
+            <div class="form-group row">
+              <%= f.label :メールアドレス, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+              <div class="col-sm-7">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 32 %>
+              </div>
+            </div>  
+        
+              <div class="form-group row">
+                <%= f.label :パスワード, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+                <div class="col-sm-7">
+                <%= f.password_field :password, autocomplete: "current-password", size: 32 %>
+                </div>
+              </div>
+        
+              <div class="form-group row">
+                <% if devise_mapping.rememberable? %>
+                <%= f.label :remember_me, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+                <div class="col-sm-7">
+                <%= f.check_box :remember_me %>
+                <% end %>
+                </div>
+              </div>
+              
+              <div class="text-center">
+                <%= f.submit "ログイン", class: "btn btn-sm w-100 btn-outline-warning rounded-pill" %>
+              </div>
+                <% end %>
+            </div>
           </div>
         </div>
-  
-        <div class="form-group row">
-          <%= f.label :パスワード, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
-          <%= f.password_field :password, autocomplete: "current-password", size: 32 %>
-          </div>
-        </div>
-  
-        <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, :style=>"color:white;" %>
-        <% end %>
-  
-        <div class="text-center">
-          <%= f.submit "ログイン", class: "btn btn-sm w-50 btn-outline-warning" %>
-        </div>
-          <% end %>
-      </div>
-    </div>
-  </div>
-    <%#= render "admins/shared/links" %>
+          <%#= render "admins/shared/links" %>

@@ -1,27 +1,27 @@
-<div class="container justify-content-center">
-  <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">管理者側来遊者一覧</font></span></h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">管理者側来遊者一覧</font></span></h2>
 
-    <br>
-    <div class="bg-white">
-      <div class="col-11">
-       <table class="table table-striped">
+      <br>
+      <table class="table table-striped table-hover">
         <thead>
-          <tr>
-            <th>来遊者</th>
-            <th>抹消</th>
+          <tr class="shadow">
+            <th><strong><font color="#E2E3CB">来遊者</font></strong></th>
+            <th><strong><font color="#E2E3CB">抹消</font></strong></th>
           </tr>
         </thead>
-
+      
         <tbody>
           <% @customers.each do |customer| %>
-            <tr>
-              <td><%= customer.name %></td>
-              <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-25 btn-outline-danger fas fa-skull" %></td>
-            </tr>
-          <% end %>
+          <tr>
+            <td><strong class="shadow2"><%= customer.name %></strong></td>
+            <td><%= link_to '', admins_customer_path(customer.id), method: :delete, class: "btn btn-sm w-50 btn-outline-danger fas fa-skull rounded-pill" %></td>
+            <% end %>
+          </tr>
         </tbody>
       </table>
-        <%= paginate @customers %>
-      </div>
+      <%= paginate @customers %>
     </div>
+  </div>
 </div>

@@ -1,62 +1,59 @@
-<!--<%# if @item.errors.any? %>-->
-<!--  <%#= @item.errors.count %>errors-->
-<!--  <%# @item.errors.full_messages.each do |message| %>-->
-<!--    <%#= message %>-->
-<!--  <%# end %>-->
-<!--<%# end %>  -->
-
 <div class="d-flex align-items-center" style="height:860px;">
   <div class="container">
     <div class="form-horizontal">
 
       <h3 class ="text-center m-5 border-bottom p-2"><strong><font color="#E2E3CB">思ひで寄稿</font></strong></h3>
       <%= form_with(model: @item, url: items_path, local: true) do |f| %>
-      
+
+      <div class="container">
+    <div class="form-horizontal">
+
+      <div class="mx-auto" style="width: 500px;">
         <div class="form-group row">
-          <%= f.label :推し画像, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
+          <%= f.label :推し画像, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+          <div class="col-sm-7">
           <%= f.attachment_field :image %>
           </div>
         </div>
-      
+
         <div class="form-group row">
-          <%= f.label :推しもん, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
+          <%= f.label :推しもん, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+          <div class="col-sm-7">
           <%= f.text_field :name, size: 29 %>
           </div>
         </div>
-      
+
         <div class="form-group row">
-          <%= f.label :紹介, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
+          <%= f.label :紹介, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+          <div class="col-sm-7">
           <%= f.text_area :guide, size: 30 %>
           </div>
         </div>
-      
+
         <div class="form-group row">
-          <%= f.label :タグ, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
-          <div class="col-sm-9">
+          <%= f.label :付札, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
+          <div class="col-sm-7">
             <%= f.text_field :tag_name, size: 29 %>
           </div>
-          <div>　
+          <div>
           　<font color="#E2E3CB">"スペースを入力することで複数のタグを付けることができます。"</font>
           　<br>
-            <font color="#E2E3CB">　　"例：あんぱん クリームぱん うぐいすパン"</font>
+            <font color="#E2E3CB">　"例：あんぱん クリームぱん うぐいすパン"</font>
           </div>
         </div>
-      
+
         <div class="form-group row">
-          <%= f.label :タグリスト, class: "col-sm-3 col-form-label", :style=>"color:white;" %>
+          <%= f.label :付札一覧, class: "col-sm-5 col-form-label shadow", :style=>"color:#E2E3CB;" %>
           <% @tag_list.each do |list| %>
-            <%= link_to list.tag_name, tag_items_path(tag_id: list.id), :style=>"color:white;" %>
+            <%= link_to list.tag_name, tag_items_path(tag_id: list.id), :style=>"color:#E2E3CB;" %>
             <font color="#E2E3CB"><%= "(#{list.items.count})" %></font>
           <% end %>
-          <div class="col-sm-9">
+          <div class="text-center">
           </div>
           <br></br>
-          <%= f.submit '寄稿', class: "btn btn-outline-warning w-50 btn-sm" %>
+          <%= f.submit '寄稿', class: "btn btn-outline-warning w-100 btn-sm rounded-pill" %>
           <% end %>
         </div>
-    </div>    
+    </div>
   </div>
 </div>
