@@ -1,59 +1,68 @@
-<% if @range == '2' %>
-<h2><span class="badge badge-pill badge-dark">思ひで 検索 "<%= params[:word] %>"</span></h2>
-<!--<h2>思ひで 検索 "<%#= params[:word] %>"</h2>-->
-<% else %>
-<h2><span class="badge badge-pill badge-dark">来遊者 検索 "<%= params[:word] %>"</span></h2>
-<!--<h2>来週者 検索 "<%#= params[:word] %>"</h2>-->
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
 
-<table class="table tabel-hover tabel-inverse">
-  <% if @range == '2' %>
-  <thead>
-    <tr>
-      <th>来遊者</th>
-      <th>推しもん</th>
-      <th>紹介</th>
-      <th></th>
-      <th></th>
-      <th colspan='3'></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @item.each do |item| %>
-    <tr>
-      <td>
-        <%= link_to(item.customer) do %>
-        <%= attachment_image_tag(item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg") %>
-        <% end %>
-      </td>
-      <td>
-        <%= link_to item.name, item, class: "item_#{item.id}" %>
-      </td>
-      <td><%= item.guide %></td>
-    </tr>
-        <% end %>
-  </tbody>
-  <% else %>
-  
-  <thead>
-    <tr>
-      <th>来遊者</th>
-      <th>ニックネーム</th>
-      <th></th>
-      <th></th>
-      <th colspan='3'></th>
-    </tr>
-  </thead>
+      <br>
+      <% if @range == '2' %>
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">思ひで 検索 "<%= params[:word] %>"</font></span></h2>
+      <!--<h2>思ひで 検索 "<%#= params[:word] %>"</h2>-->
+      <% else %>
+      <h2><span class="badge badge-pill badge-dark"><font color="#E2E3CB">来遊者 検索 "<%= params[:word] %>"</font></span></h2>
+      <!--<h2>来週者 検索 "<%#= params[:word] %>"</h2>-->
+      <% end %>
 
-  <tbody>
-    <% @customer.each do |customer| %>  
-      <tr>
-        <td><%= attachment_image_tag(customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg") %></td>
-        <td><%= customer.name%></td>
-        <td><%= link_to "来遊者詳細", customer, class: "customer_#{customer.id}" %></td>
-      </tr>
-    <% end %>  
-  </tbody>
-  <% end %>    
-</table>
+      <br>
+      <table class="table tabel-hover table-striped">
+        <% if @range == '2' %>
+        <thead>
+          <tr class="shadow">
+            <th><strong><font color="#E2E3CB">来遊者</strong></font></th>
+            <th><strong><font color="#E2E3CB">推しもん</strong></font></th>
+            <th><strong><font color="#E2E3CB">紹介</strong></font></th>
+            <th></th>
+            <!--<th></th>-->
+            <th colspan='3'></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @item.each do |item| %>
+          <tr>
+            <th>
+              <%= link_to(item.customer) do %>
+              <%= attachment_image_tag(item.customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded") %>
+              <% end %>
+            </th>
+            <th class="shadow2">
+              <%= link_to item.name, item, class: "item_#{item.id}", :style=>"color:black; font-weight:bold;" %>
+            </th>
+            <th class="shadow2"><%= item.guide %></th>
+          </tr>
+              <% end %>
+        </tbody>
+        <% else %>
+
+        <thead>
+          <tr class="shadow">
+            <th><strong><font color="#E2E3CB">来遊者</strong></font></th>
+            <th><strong><font color="#E2E3CB">愛称</strong></font></th>
+            <th><strong><font color="#E2E3CB">詳細</strong></font></th>
+            <!--<th></th>-->
+            <th colspan='3'></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customer.each do |customer| %>
+            <tr>
+              <th><%= attachment_image_tag(customer, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"rounded") %></th>
+              <th class="shadow2"><%= customer.name%></th>
+              <th><%= link_to "", customer, class: "customer_#{customer.id}", class: "btn btn-outline-warning w-50 fas fa-list-alt rounded-pill" %></th>
+            </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
